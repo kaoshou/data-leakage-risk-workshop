@@ -3,177 +3,237 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>資料外洩安全防護｜工作坊情境選擇</title>
+<meta name="description" content="企業資料外洩風險分組討論工作坊：12 個可直接帶領課堂討論與報告的情境。">
+<title>企業資料外洩風險｜分組討論工作坊</title>
 <style>
 :root{
-  --bg:#f5f7fb;--surface:#fff;--surface2:#f8fafc;--ink:#132033;--muted:#64748b;
-  --line:#d8e2ef;--primary:#2563eb;--primary2:#1d4ed8;--teal:#0f766e;
-  --green:#166534;--amber:#92400e;--red:#991b1b;--purple:#6d28d9;
-  --shadow:0 14px 38px rgba(15,23,42,.08);--soft:0 8px 24px rgba(15,23,42,.06);
-  --radius:20px;--radius-sm:14px;
+  --navy:#10233f;--ink:#17243a;--muted:#627087;--bg:#f3f6fb;--surface:#fff;
+  --line:#d7e0ec;--blue:#1f63d8;--blue-dark:#184ba4;--blue-soft:#eaf2ff;
+  --teal:#087d73;--teal-soft:#e4f8f5;--amber:#a55208;--amber-soft:#fff4df;
+  --red:#ad2935;--red-soft:#fff0f1;--violet:#6d3cc4;--violet-soft:#f3edff;
+  --green:#267245;--green-soft:#eaf8ef;--shadow:0 16px 42px rgba(16,35,63,.10);
+  --soft-shadow:0 8px 22px rgba(16,35,63,.07);--radius:20px;--radius-sm:14px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;font-family:"Microsoft JhengHei","Noto Sans TC",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:radial-gradient(circle at top left,rgba(37,99,235,.16),transparent 34rem),
-             radial-gradient(circle at 86% 5%,rgba(20,184,166,.12),transparent 30rem),
-             linear-gradient(180deg,#eef4ff 0%,var(--bg) 380px);
-  color:var(--ink);line-height:1.72;
+  margin:0;min-height:100vh;color:var(--ink);line-height:1.68;background:
+  radial-gradient(circle at 8% 0,rgba(31,99,216,.15),transparent 31rem),
+  radial-gradient(circle at 90% 6%,rgba(8,125,115,.12),transparent 28rem),
+  linear-gradient(180deg,#edf4ff 0,var(--bg) 410px);
+  font-family:"Microsoft JhengHei","Noto Sans TC",system-ui,-apple-system,"Segoe UI",sans-serif;
+  text-rendering:optimizeLegibility;
 }
-header,main,footer{max-width:1240px;margin:0 auto;padding-left:22px;padding-right:22px}
-header{padding-top:42px;padding-bottom:22px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-.eyebrow,.report-pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:7px 13px;font-size:14px;font-weight:900}
-.eyebrow{color:#164192;background:#dbeafe;border:1px solid #bfdbfe}
-.report-pill{color:#0f766e;background:#ccfbf1;border:1px solid #99f6e4}
-h1{font-size:clamp(31px,4vw,52px);line-height:1.15;margin:12px 0 14px;letter-spacing:.4px;max-width:960px}
-.subtitle{max-width:990px;color:#334155;font-size:18px;margin:0}
-main{padding-bottom:56px}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin:10px 0 18px}
-.notice,.report-frame,.panel,.student-card{
-  background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
-}
-.notice,.report-frame{padding:20px;backdrop-filter:blur(8px)}
-.notice{border-left:6px solid var(--primary)}
-.report-frame{border-left:6px solid var(--teal)}
-.notice h2,.report-frame h2,.student-card h2{margin:0 0 10px;font-size:22px;line-height:1.35}
-.notice p{margin:0 0 10px;color:#334155}
-ul,ol{margin:7px 0 0;padding-left:1.25em}
-li{margin:3px 0}
-.time{display:inline-flex;min-width:62px;justify-content:center;margin-right:6px;color:#075985;font-weight:900;background:#e0f2fe;border-radius:999px;padding:1px 7px;font-size:13px}
-.panel{padding:16px;margin-bottom:18px;position:sticky;top:10px;z-index:20;backdrop-filter:blur(8px)}
-.toolbar{display:grid;grid-template-columns:1.5fr 1fr auto auto;gap:12px;align-items:end}
-label{display:block;font-weight:900;font-size:14px;margin-bottom:6px;color:#334155}
-input,select,button{width:100%;border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-family:inherit;font-size:15px;background:#fff;color:var(--ink)}
-button{cursor:pointer;font-weight:950;border:none;background:var(--primary);color:#fff;transition:.16s ease;white-space:nowrap;box-shadow:0 8px 18px rgba(37,99,235,.18)}
-button:hover{background:var(--primary2);transform:translateY(-1px)}
-button.secondary{background:#e5edff;color:#1d4ed8;border:1px solid #c7d2fe;box-shadow:none}
-button.ghost{background:#fff;color:#1d4ed8;border:1px solid #bfdbfe;box-shadow:none}
-.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;color:var(--muted);font-size:14px}
-.pill{background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:5px 10px;font-weight:700}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer;touch-action:manipulation}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(31,99,216,.24);outline-offset:2px}
+.shell{width:min(1240px,calc(100% - 40px));margin:0 auto}
+.site-header{position:relative;padding:42px 0 22px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.eyebrow,.class-pill,.tag,.stat,.role-chip{display:inline-flex;align-items:center;border-radius:999px;font-weight:900}
+.eyebrow{padding:7px 13px;color:#16438e;background:#dfeaff;border:1px solid #bfd4ff}
+.class-pill{padding:7px 13px;color:#09685f;background:#d7f5f0;border:1px solid #a9e8df}
+h1{max-width:900px;margin:18px 0 12px;color:var(--navy);font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:.02em;text-wrap:balance}
+.lead{max-width:960px;margin:0;color:#3f5068;font-size:18px}
+.briefing-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin:16px 0 20px}
+.panel,.toolbar,.card,.modal,.worksheet,.step-card{background:rgba(255,255,255,.95);border:1px solid var(--line);box-shadow:var(--soft-shadow)}
+.panel{border-radius:var(--radius);padding:21px;background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(249,252,255,.96))}
+.panel h2,.worksheet h3{margin:0 0 10px;color:var(--navy);line-height:1.32}
+.mission{border-left:6px solid var(--blue)}
+.runbook{border-left:6px solid var(--teal)}
+.runbook ol,.mission ul{margin:8px 0 0;padding-left:1.25em}
+.runbook li,.mission li{margin:5px 0}
+.time{display:inline-flex;min-width:58px;justify-content:center;margin-right:6px;padding:1px 8px;border-radius:999px;background:#e6f3ff;color:#075a94;font-size:13px;font-weight:900}
+.toolbar{position:sticky;top:8px;z-index:20;border-radius:var(--radius);padding:16px;margin-bottom:20px;background:rgba(255,255,255,.90);backdrop-filter:blur(14px);box-shadow:0 12px 32px rgba(16,35,63,.10)}
+.toolbar-grid{display:grid;grid-template-columns:1.3fr 1fr .8fr .8fr auto auto;gap:10px;align-items:end}
+label{display:block;margin-bottom:5px;color:#3b4a61;font-size:13px;font-weight:900}
+input,select,textarea{width:100%;min-height:44px;border:1px solid var(--line);border-radius:12px;background:#fbfdff;color:var(--ink);padding:10px 11px;transition:border-color .16s ease,box-shadow .16s ease,background .16s ease}
+input:hover,select:hover,textarea:hover{border-color:#aec2de}
+input:focus,select:focus,textarea:focus{border-color:#75a3e8;background:#fff;box-shadow:0 0 0 4px rgba(31,99,216,.08)}
+textarea{min-height:112px;resize:vertical;line-height:1.55}
+.btn{width:100%;min-height:44px;border:0;border-radius:12px;padding:10px 14px;background:linear-gradient(135deg,var(--blue),#2c76e8);color:#fff;font-weight:950;box-shadow:0 7px 16px rgba(31,99,216,.18);transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:#e9f0ff;color:#174ba8;border:1px solid #c8d8fb;box-shadow:none}
+.btn.ghost{background:#fff;color:#174ba8;border:1px solid #bfd2f8;box-shadow:none}
+.btn.danger-soft{background:var(--red-soft);color:var(--red);border:1px solid #f2bdc2;box-shadow:none}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px;color:var(--muted);font-size:13px}
+.stat{padding:4px 9px;border:1px solid var(--line);background:#f8fafc}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--soft);padding:18px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;min-height:455px}
-.card::before{content:"";position:absolute;inset:0 0 auto 0;height:7px;background:linear-gradient(90deg,var(--primary),#14b8a6,#8b5cf6)}
-.card h2{font-size:20px;line-height:1.35;margin:4px 0 0;letter-spacing:.2px}
-.meta{display:flex;flex-wrap:wrap;gap:8px;font-size:13px}
-.tag{border-radius:999px;padding:4px 9px;font-weight:900;background:#f1f5f9;color:#334155;border:1px solid transparent}
-.type{background:#e0f2fe;color:#075985;border-color:#bae6fd}
-.easy{background:#ecfdf5;color:var(--green);border-color:#bbf7d0}
-.medium{background:#fef3c7;color:var(--amber);border-color:#fde68a}
-.hard{background:#fef2f2;color:var(--red);border-color:#fecaca}
-.focus{background:#f3e8ff;color:var(--purple);border-color:#e9d5ff}
-.company,.scenario-block{background:var(--surface2);border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px 12px;color:#334155;font-size:14px}
-.scenario-block.warn{background:#fff7ed;border-color:#fed7aa}
-.scenario-block.reflect{background:#f0f9ff;border-color:#bae6fd}
-.card p{margin:0;color:#374151}
-.section-title{font-weight:950;color:#111827;margin:2px 0 2px;font-size:15px}
-.actions{margin-top:auto;display:grid;grid-template-columns:1fr;gap:10px}
-.student{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.student-card{padding:18px;box-shadow:var(--soft)}
-.reflection-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:10px}
-.reflection{padding:13px;border-radius:16px;border:1px solid var(--line);background:#f8fafc}
-.reflection h3{margin:0 0 6px;font-size:16px}
-footer{padding-top:0;padding-bottom:36px;color:var(--muted);font-size:13px;text-align:center}
-.modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.62);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.card{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:11px;min-height:410px;border-radius:var(--radius);padding:19px;background:linear-gradient(165deg,#fff 0,#fbfdff 100%);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.card::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--blue),#1bad9e,var(--violet))}
+.card h2{margin:5px 0 0;color:var(--navy);font-size:20px;line-height:1.35}
+.meta{display:flex;gap:7px;flex-wrap:wrap}
+.tag{padding:3px 8px;border:1px solid transparent;font-size:12px}
+.tag.type{color:#0b5c91;background:#e3f3ff;border-color:#bfe3fb}
+.tag.easy{color:var(--green);background:var(--green-soft);border-color:#bde7cc}
+.tag.medium{color:var(--amber);background:var(--amber-soft);border-color:#f2d299}
+.tag.hard{color:var(--red);background:var(--red-soft);border-color:#efc0c4}
+.tag.focus{color:var(--violet);background:var(--violet-soft);border-color:#dbcafa}
+.objective,.preview,.constraint-preview{border-radius:var(--radius-sm);padding:10px 12px;font-size:14px}
+.objective{background:linear-gradient(135deg,#eef6ff,#f6faff);border:1px solid #c9defc;color:#254565}
+.preview{background:#f8fafc;border:1px solid var(--line);color:#3b4a61}
+.constraint-preview{background:#fff8eb;border:1px solid #f1d8a9;color:#6c4618}
+.card .actions{margin-top:auto}
+.empty{grid-column:1/-1;text-align:center;padding:30px}
+.learning-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 34px}
+.step-card{border-radius:var(--radius);padding:18px;background:linear-gradient(145deg,#fff,#f8fbff)}
+.step-number{display:inline-grid;place-items:center;width:32px;height:32px;margin-bottom:8px;border-radius:10px;background:var(--navy);color:#fff;font-weight:950}
+.step-card h2{margin:0 0 6px;font-size:18px;color:var(--navy)}
+.step-card p{margin:0;color:#4a586d}
+.site-footer{padding:4px 0 34px;color:var(--muted);font-size:13px}
+.footer-brand{display:flex;align-items:center;justify-content:center;gap:12px;padding:18px;border-top:1px solid var(--line)}
+.footer-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--blue),var(--teal));color:#fff;font-weight:950;letter-spacing:.05em;box-shadow:0 8px 18px rgba(31,99,216,.18)}
+.footer-copy{display:grid;gap:2px;text-align:left}
+.footer-copy strong{color:var(--navy);font-size:14px}
+.footer-copy span{color:var(--muted)}
+.modal-backdrop{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(9,20,38,.68)}
 .modal-backdrop.open{display:flex}
-.modal{width:min(980px,100%);max-height:92vh;overflow:hidden;background:#fff;border-radius:24px;box-shadow:0 28px 90px rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.4);display:flex;flex-direction:column}
-.modal-header{padding:20px 22px 16px;background:linear-gradient(135deg,#1d4ed8,#0f766e);color:#fff}
+.modal{display:flex;flex-direction:column;width:min(1050px,100%);max-height:94vh;overflow:hidden;border-radius:24px;box-shadow:0 30px 100px rgba(0,0,0,.30)}
+.modal-header{padding:18px 22px;color:#fff;background:linear-gradient(125deg,#184fae,#087d73)}
 .modal-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-.modal-title{margin:8px 0 6px;font-size:25px;line-height:1.32}
-.modal-sub{opacity:.92;font-weight:800;font-size:14px}
-.close-btn{width:auto;background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.35);box-shadow:none;padding:8px 12px}
-.modal-body{padding:20px 22px;overflow:auto}
-.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.detail-box{background:#f8fafc;border:1px solid var(--line);border-radius:16px;padding:14px}
+.modal-kicker{font-size:13px;font-weight:900;opacity:.92}
+.modal-title{margin:5px 0 0;font-size:clamp(22px,3vw,29px);line-height:1.3}
+.close-btn{width:auto;padding:8px 12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.42);box-shadow:none}
+.modal-tools{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:13px}
+.timer{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.timer-display{min-width:88px;padding:5px 12px;border-radius:10px;background:rgba(255,255,255,.17);font-size:21px;font-weight:950;text-align:center;font-variant-numeric:tabular-nums}
+.timer .mini{width:auto;padding:6px 10px;border:1px solid rgba(255,255,255,.36);border-radius:9px;background:rgba(255,255,255,.14);color:#fff;font-size:13px;font-weight:900}
+.group-display{font-size:14px;font-weight:900}
+.modal-body{overflow:auto;padding:20px 22px;background:#f7f9fc;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.detail-box{padding:15px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 3px 12px rgba(16,35,63,.035)}
 .detail-box.full{grid-column:1/-1}
-.detail-box.warn{background:#fff7ed;border-color:#fed7aa}
-.detail-box.reflect{background:#f0f9ff;border-color:#bae6fd}
-.detail-box.challenge{background:#fdf2f8;border-color:#fbcfe8}
-.detail-box h3{margin:0 0 7px;font-size:17px}
-.detail-box p{margin:0;color:#334155}
-.modal-actions{display:flex;gap:10px;padding:14px 22px 20px;border-top:1px solid var(--line);background:#f8fafc}
-.copyarea{position:absolute;left:-9999px;width:1px;height:1px}
-@media(max-width:1100px){.hero-grid,.student{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr 1fr}.panel{position:static}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.detail-grid,.reflection-grid{grid-template-columns:1fr}}
-@media(max-width:720px){header{padding-top:28px}.toolbar,.cards{grid-template-columns:1fr}.actions{grid-template-columns:1fr}.modal-backdrop{padding:0}.modal{max-height:100vh;height:100vh;border-radius:0}.modal-actions{flex-direction:column}.card{min-height:auto}}
-@media print{header,.hero-grid,.panel,.cards,.student,footer,.modal-actions,.close-btn{display:none!important}body{background:#fff}.modal-backdrop{display:block!important;position:static;background:#fff;padding:0}.modal{max-height:none;width:100%;box-shadow:none;border:none;border-radius:0}.modal-header{color:#000;background:#fff;border-bottom:2px solid #000}.modal-body{overflow:visible;padding:0}}
+.detail-box h3{margin:0 0 7px;color:var(--navy);font-size:17px}
+.detail-box p{margin:0;color:#3d4c62}
+.detail-box ul,.task-list{margin:6px 0 0;padding-left:1.25em}
+.detail-box li,.task-list li{margin:5px 0}
+.facts{background:#edf6ff;border-color:#c3dcfb}
+.constraints{background:#fff7e9;border-color:#efd4a0}
+.assets{grid-column:1/-1;background:#eefaf2;border-color:#bee5c9}
+.roles{background:#f1fbf8;border-color:#bfe7df}
+.role-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.role-chip{padding:4px 9px;background:#fff;border:1px solid #b9ddd7;color:#17665f;font-size:13px}
+.tasks{margin-top:14px;padding:16px;border-radius:18px;background:#fff;border:2px solid #c7d7ef}
+.tasks h3{margin:0 0 9px;color:var(--navy)}
+.decision-rule{margin:12px 0 0;padding:12px 14px;border-radius:14px;background:#f3edff;border:1px solid #d9c6fb;color:#4d3480}
+.decision-rule strong{color:#472777}
+.task-list{display:grid;gap:8px;counter-reset:item;list-style:none;padding:0}
+.task-list li{position:relative;padding:10px 12px 10px 46px;border-radius:13px;background:#f6f8fc;border:1px solid var(--line)}
+.task-list li::before{counter-increment:item;content:counter(item);position:absolute;left:12px;top:10px;display:grid;place-items:center;width:24px;height:24px;border-radius:8px;background:var(--blue);color:#fff;font-weight:950}
+.inject{margin-top:14px;padding:15px;border:2px dashed #df9c35;border-radius:18px;background:#fff9ed}
+.inject h3{margin:0 0 7px;color:#814606}
+.inject-note{color:#684a24;font-size:14px}
+.inject-content{display:none;margin-top:12px;padding:12px;border-radius:13px;background:#fff;border:1px solid #eacb91}
+.inject-content.revealed{display:block}
+.inject-content p{margin:0 0 7px}
+.inject .btn{width:auto;margin-top:8px;background:#a7590d}
+.worksheet{margin-top:16px;border-radius:18px;padding:16px}
+.worksheet-intro{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:9px}
+.save-state{color:var(--green);font-size:13px;font-weight:900}
+.worksheet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.work-field{padding:12px;border:1px solid var(--line);border-radius:14px;background:#fbfcfe}
+.work-field.full{grid-column:1/-1}
+.work-field label{font-size:14px;color:var(--navy)}
+.hint{margin:0 0 7px;color:var(--muted);font-size:12px}
+.rubric{grid-column:1/-1;padding:12px;border-radius:14px;background:#f5f8fc;border:1px solid var(--line)}
+.rubric h4{margin:0 0 7px;color:var(--navy)}
+.rubric-row{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.rubric-row span{padding:7px 8px;border-radius:10px;background:#fff;border:1px solid var(--line);font-size:12px;text-align:center}
+.modal-actions{display:flex;gap:9px;padding:13px 22px 17px;border-top:1px solid var(--line);background:rgba(255,255,255,.97);box-shadow:0 -8px 24px rgba(16,35,63,.06)}
+.modal-actions .btn{width:auto}
+.toast{position:fixed;right:20px;bottom:20px;z-index:160;display:none;max-width:360px;padding:11px 14px;border-radius:12px;background:#10233f;color:#fff;box-shadow:var(--shadow);font-weight:800}
+.toast.show{display:block}
+.screen-reader{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(hover:hover){.btn:hover{background:linear-gradient(135deg,var(--blue-dark),#2268d2);transform:translateY(-1px);box-shadow:0 10px 22px rgba(31,99,216,.23)}.card:hover{transform:translateY(-3px);border-color:#b8ccec;box-shadow:0 16px 34px rgba(16,35,63,.12)}}
+@media(max-width:1050px){.toolbar-grid{grid-template-columns:repeat(3,1fr)}.toolbar-grid>div:nth-child(1),.toolbar-grid>div:nth-child(2),.toolbar-grid>div:nth-child(3),.toolbar-grid>div:nth-child(4){grid-column:auto}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:820px){.briefing-grid,.learning-strip,.detail-grid,.worksheet-grid{grid-template-columns:1fr}.detail-box.full,.assets,.work-field.full,.rubric{grid-column:auto}.rubric-row{grid-template-columns:1fr 1fr}.toolbar{position:static}.toolbar-grid{grid-template-columns:1fr 1fr}.toolbar-grid>div:nth-child(1),.toolbar-grid>div:nth-child(2){grid-column:1/-1}.cards{gap:14px}}
+@media(max-width:650px){
+  body{line-height:1.62}.shell{width:min(100% - 20px,1240px)}.site-header{padding:22px 0 16px}.topline{gap:8px}.eyebrow,.class-pill{padding:6px 10px;font-size:12px}h1{margin:13px 0 9px;font-size:clamp(30px,10vw,39px);line-height:1.12}.lead{font-size:16px;line-height:1.65}
+  .briefing-grid{gap:12px;margin:12px 0 15px}.panel{padding:16px;border-radius:18px}.panel h2{font-size:20px}.runbook li,.mission li{margin:7px 0}
+  .toolbar{padding:12px;border-radius:18px;margin-bottom:14px}.toolbar-grid{grid-template-columns:1fr 1fr;gap:9px}.toolbar-grid>div:nth-child(1),.toolbar-grid>div:nth-child(2){grid-column:1/-1}.toolbar-grid>div:nth-child(n+5) label{display:none}.toolbar-grid>div:nth-child(n+5){align-self:end}.stats{flex-wrap:nowrap;overflow-x:auto;padding:1px 0 3px;scrollbar-width:none}.stats::-webkit-scrollbar{display:none}.stat{flex:none}
+  input,select,textarea{font-size:16px}.cards{grid-template-columns:1fr;gap:12px}.card{min-height:auto;padding:16px;border-radius:18px}.card h2{font-size:19px}.objective,.preview,.constraint-preview{padding:9px 10px}.learning-strip{gap:10px;margin:16px 0 24px}.step-card{padding:15px;border-radius:17px}
+  .modal-backdrop{padding:0}.modal{width:100%;height:100dvh;max-height:none;border-radius:0}.modal-header{padding:calc(12px + env(safe-area-inset-top)) 13px 12px}.modal-title{font-size:20px}.modal-kicker{font-size:12px}.close-btn{min-height:40px;padding:6px 10px}.modal-tools{display:grid;grid-template-columns:1fr;gap:7px;margin-top:9px}.timer{display:grid;grid-template-columns:1fr auto auto}.timer-display{min-width:0;font-size:19px}.timer .mini{min-height:40px;padding:6px 10px}.group-display{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .modal-body{padding:12px 11px}.detail-grid{gap:10px}.detail-box{padding:12px;border-radius:14px}.detail-box h3{font-size:16px}.detail-box li{margin:7px 0}.tasks,.inject,.worksheet{margin-top:11px;padding:13px;border-radius:16px}.task-list li{padding:10px 10px 10px 43px}.decision-rule{padding:11px}.inject .btn{width:100%}.role-chip{padding:5px 9px}.worksheet-intro{display:block}.worksheet textarea{min-height:145px}.rubric-row{grid-template-columns:1fr 1fr}
+  .modal-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 11px calc(10px + env(safe-area-inset-bottom))}.modal-actions .btn{width:100%;min-height:44px;padding:8px 7px;font-size:13px}.modal-actions #closeModal2{display:none}.toast{left:12px;right:12px;bottom:calc(112px + env(safe-area-inset-bottom));max-width:none;text-align:center}
+  .footer-brand{justify-content:flex-start;padding:16px 5px 22px}.footer-mark{width:40px;height:40px}.footer-copy strong{font-size:13px}.footer-copy span{font-size:12px}
+}
+@media(max-width:390px){.eyebrow,.class-pill{font-size:11px}.toolbar-grid{gap:8px}.modal-actions .btn{font-size:12px}.rubric-row{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.card,input,select,textarea{transition:none!important}}
+@media print{
+  body{background:#fff}.site-header,.briefing-grid,.toolbar,.cards,.learning-strip,.site-footer,.modal-actions,.close-btn,.timer .mini,.inject .btn,.toast{display:none!important}
+  .modal-backdrop{display:block!important;position:static;padding:0;background:#fff}.modal{width:100%;max-height:none;overflow:visible;border:0;box-shadow:none}.modal-header{padding:10px 0;color:#000;background:#fff;border-bottom:2px solid #000}.modal-body{overflow:visible;padding:12px 0;background:#fff}.detail-box,.tasks,.inject,.worksheet,.work-field{break-inside:avoid;box-shadow:none}.timer-display{color:#000;background:#fff;border:1px solid #aaa}.worksheet textarea{min-height:80px;border:1px solid #888}.tag{border-color:#777!important;color:#000!important;background:#fff!important}
+}
 </style>
 </head>
 <body>
-<header>
-  <div class="topbar">
-    <div class="eyebrow">資料外洩安全防護｜工作坊</div>
-    <div class="report-pill">每組報告 5 分鐘</div>
+<header class="site-header shell">
+  <div class="topline">
+    <span class="eyebrow">資料外洩安全防護｜學生工作坊</span>
+    <span class="class-pill">20 分鐘討論＋5 分鐘報告</span>
   </div>
-  <h1>企業資料外洩風險<br>模擬情境選擇</h1>
-  <p class="subtitle">請從下方 12 個企業情境中選擇一題。每題都包含公司背景、日常作業、事件狀況、導入挑戰與討論問題。請各小組判斷風險與改善措施。</p>
+  <h1>企業資料外洩風險<br>分組決策工作台</h1>
+  <p class="lead">你們是公司的跨部門改善小組。情境沒有唯一答案；請在營運效率、成本、人力與資安風險之間做出取捨，並提出能執行、能追蹤、能驗收的方案。</p>
 </header>
-<main>
-  <section class="hero-grid">
-    <div class="notice">
-      <h2>任務說明</h2>
-      <p>請把自己想像成公司內部的跨部門資料保護改善小組。你們要分析的不只是事件結果，而是日常作業流程、組織習慣與導入限制。</p>
+
+<main class="shell">
+  <section class="briefing-grid" aria-label="工作坊說明">
+    <article class="panel mission">
+      <h2>小組任務</h2>
       <ul>
-        <li><strong>先理解流程：</strong>資料從哪裡來？放在哪裡？誰會用？會分享給誰？</li>
-        <li><strong>再找出風險：</strong>可能是人員操作、流程缺口、技術設定、外部合作或組織文化。</li>
-        <li><strong>最後提出改善：</strong>請提出一週到一個月內可開始執行的做法，並思考導入阻力。</li>
+        <li><strong>先找重要資料：</strong>資料從哪裡來、經過誰、存在哪裡、可能造成什麼損害？</li>
+        <li><strong>再做風險決策：</strong>排出前三大風險，提出前 24 小時行動與三項優先改善。</li>
+        <li><strong>先不花新預算：</strong>7 天方案必須善用既有人力、工具與流程，不可只回答「買系統」。</li>
+        <li><strong>最後落地：</strong>寫出 7／30／90 天負責人、投資條件、驗收證據與仍然存在的風險。</li>
       </ul>
-    </div>
-    <div class="report-frame">
-      <h2>5 分鐘報告框架</h2>
+    </article>
+    <article class="panel runbook">
+      <h2>20 分鐘討論節奏</h2>
       <ol>
-        <li><span class="time">1:00</span>公司背景、重要資料與日常流程。</li>
-        <li><span class="time">1:30</span>前三大外洩風險。</li>
-        <li><span class="time">1:30</span>最優先改善措施與執行步驟。</li>
-        <li><span class="time">1:00</span>導入阻力、配套措施與下一步行動。</li>
+        <li><span class="time">0–2</span>閱讀情境、分配角色。</li>
+        <li><span class="time">2–7</span>找資料流與前三大風險。</li>
+        <li><span class="time">7–12</span>決定立即處置與改善措施。</li>
+        <li><span class="time">12</span>揭露「事件轉折」，修正方案。</li>
+        <li><span class="time">17–20</span>整理 5 分鐘報告。</li>
       </ol>
-    </div>
+    </article>
   </section>
 
-  <section class="panel">
-    <div class="toolbar">
+  <section class="toolbar" aria-label="情境篩選與分組設定">
+    <div class="toolbar-grid">
       <div>
-        <label for="keyword">關鍵字搜尋</label>
-        <input id="keyword" type="search" placeholder="例如：雲端、離職、Email、MFA、外包、薪資、客服">
+        <label for="groupName">小組名稱</label>
+        <input id="groupName" maxlength="30" placeholder="例如：第 3 組／藍隊">
+      </div>
+      <div>
+        <label for="keyword">搜尋情境</label>
+        <input id="keyword" type="search" placeholder="例如：雲端、離職、MFA">
       </div>
       <div>
         <label for="category">風險類型</label>
-        <select id="category">
-          <option value="all">全部類型</option>
-          <option>雲端分享</option><option>人員操作</option><option>帳號權限</option><option>離職交接</option>
-          <option>外部合作</option><option>可攜式設備</option><option>社交工程</option><option>資料保存</option><option>私人帳號</option>
+        <select id="category"><option value="all">全部類型</option></select>
+      </div>
+      <div>
+        <label for="difficulty">難度</label>
+        <select id="difficulty">
+          <option value="all">全部難度</option><option value="入門">入門</option><option value="中階">中階</option><option value="進階">進階</option>
         </select>
       </div>
-      <div><label>&nbsp;</label><button class="secondary" id="resetBtn">重設篩選</button></div>
-      <div><label>&nbsp;</label><button id="randomBtn">隨機選題</button></div>
+      <div><label>&nbsp;</label><button class="btn secondary" id="resetBtn">重設篩選</button></div>
+      <div><label>&nbsp;</label><button class="btn" id="randomBtn">隨機抽題</button></div>
     </div>
     <div class="stats">
-      <span class="pill" id="countText">目前顯示 0 / 12 個情境</span>
-      <span class="pill">每組選擇 1 題</span>
+      <span class="stat" id="countText">目前顯示 0 個情境</span>
+      <span class="stat">每組選擇 1 題</span>
+      <span class="stat">討論紀錄自動保存在此瀏覽器</span>
     </div>
   </section>
 
-  <section class="cards" id="cards"></section>
+  <section class="cards" id="cards" aria-live="polite"></section>
 
-  <section class="student">
-    <div class="student-card">
-      <h2>討論時不要只問「誰錯了」</h2>
-      <ol>
-        <li><strong>資料面：</strong>這份資料真的需要被那麼多人看到嗎？</li>
-        <li><strong>流程面：</strong>現在的做法是正式流程，還是大家為了方便形成的習慣？</li>
-        <li><strong>權限面：</strong>誰可以看、下載、修改、分享？是否符合最小權限？</li>
-        <li><strong>追查面：</strong>出事後查得到誰做了什麼嗎？</li>
-        <li><strong>管理面：</strong>如何在效率、安全、成本與人力限制間取得平衡？</li>
-      </ol>
-    </div>
-    <div class="student-card">
-      <h2>共用討論提醒</h2>
-      <div class="reflection-grid">
-        <div class="reflection"><h3>效率 vs. 安全</h3><p>改善會不會讓流程變慢？如何降低同仁抗拒？</p></div>
-        <div class="reflection"><h3>成本 vs. 風險</h3><p>若資源有限，哪一項改善最值得先做？</p></div>
-        <div class="reflection"><h3>制度 vs. 文化</h3><p>若大家習慣方便行事，如何讓措施能被接受？</p></div>
-      </div>
-    </div>
+  <section class="learning-strip" aria-label="報告品質提醒">
+    <article class="step-card"><span class="step-number">1</span><h2>不要只找誰犯錯</h2><p>追查人員、流程、權限、技術、供應商與組織文化如何共同造成風險。</p></article>
+    <article class="step-card"><span class="step-number">2</span><h2>不要只列工具名稱</h2><p>說明誰負責、何時完成、如何驗收，以及措施對營運造成的影響。</p></article>
+    <article class="step-card"><span class="step-number">3</span><h2>不要假設零風險</h2><p>說明方案實施後還有哪些殘餘風險，以及公司如何偵測與應變。</p></article>
   </section>
 </main>
 
@@ -181,412 +241,362 @@ footer{padding-top:0;padding-bottom:36px;color:var(--muted);font-size:13px;text-
   <article class="modal">
     <header class="modal-header">
       <div class="modal-top">
-        <div>
-          <div class="modal-sub" id="modalSub"></div>
-          <h2 class="modal-title" id="modalTitle"></h2>
+        <div><div class="modal-kicker" id="modalKicker"></div><h2 class="modal-title" id="modalTitle"></h2></div>
+        <button class="btn close-btn" id="closeModal" aria-label="關閉情境">關閉</button>
+      </div>
+      <div class="modal-tools">
+        <div class="timer" aria-label="討論計時器">
+          <span class="timer-display" id="timerDisplay">20:00</span>
+          <button class="mini" id="timerToggle">開始計時</button>
+          <button class="mini" id="timerReset">重設</button>
         </div>
-        <button class="close-btn" id="closeModal" aria-label="關閉視窗">關閉</button>
+        <div class="group-display" id="modalGroup">目前小組：未命名</div>
       </div>
     </header>
     <div class="modal-body" id="modalBody"></div>
-    <div class="modal-actions">
-      <button id="printBtn">列印此情境</button>
-      <button class="secondary" id="copyBtn">複製完整文字</button>
-      <button class="ghost" id="closeModal2">回到情境卡</button>
-    </div>
-    <textarea class="copyarea" id="copyArea" readonly></textarea>
+    <footer class="modal-actions">
+      <button class="btn" id="copyReportBtn">複製報告草稿</button>
+      <button class="btn secondary" id="downloadReportBtn">下載成果</button>
+      <button class="btn secondary" id="printBtn">列印情境與紀錄</button>
+      <button class="btn danger-soft" id="clearWorksheetBtn">清除此組紀錄</button>
+      <button class="btn ghost" id="closeModal2">回到選題</button>
+    </footer>
   </article>
 </div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<footer>資料外洩安全防護｜學生工作坊｜授課教師：鄭郁翰</footer>
+<footer class="shell site-footer">
+  <div class="footer-brand">
+    <span class="footer-mark" aria-hidden="true">KSU</span>
+    <div class="footer-copy">
+      <strong>授課教師｜崑山科技大學 鄭郁翰老師</strong>
+      <span>資料外洩安全防護・分組討論工作坊</span>
+    </div>
+  </div>
+</footer>
 
 <script>
 const scenarios = [
   {
-    "id": 1,
-    "title": "業務部客戶名單放在雲端硬碟，分享連結被轉傳",
-    "category": "雲端分享",
-    "focus": "雲端權限與便利性",
-    "company": "某家中小型設備代理商共有 45 位員工，主要客戶為工廠、學校與中小企業。公司成立十多年，業務關係多半仰賴業務人員長期經營，因此客戶名單、拜訪紀錄、報價歷程與採購習慣，都是公司非常重要的營運資產。業務部共有 12 人，是公司主要營收來源，公司文化非常重視快速回應客戶與業務彈性。業務人員經常在外拜訪客戶，需要用手機或筆電快速查詢客戶聯絡方式、報價狀態與過去交易紀錄。公司目前沒有專職資安人員，雲端硬碟主要由各部門自行管理，資料夾命名、分享權限與外部合作授權也多半由業務部自行判斷。",
-    "daily": "業務部有一份「客戶名單總表」，裡面記錄客戶公司名稱、聯絡人、電話、Email、購買紀錄、報價狀態與負責業務。這份資料平常由業務部共同維護，主管每週會下載 Excel 做業績追蹤。過去為了方便合作，業務部常直接用「知道連結的人即可查看」分享資料，大家覺得這樣最快，也沒有發生過明顯問題。",
-    "scenario": "最近公司要製作一份客戶產業分布簡報，業務同仁為了讓外部簡報設計廠商快速取得資料，將雲端資料夾連結傳給廠商。幾週後，另一位業務發現某個外部合作對象也能開啟這份客戶名單，才發現該資料夾似乎不是只有業務部能看。業務部認為：「我們只是為了工作方便，而且廠商也只是幫忙做簡報。」資訊人員則擔心：「這份資料到底被誰看過、誰下載過，現在可能很難確認。」",
-    "challenge": "最近曾有顧問建議公司導入企業版雲端 DLP、外部分享控管與自動化稽核工具，但公司認為授權費用偏高，而且短期內不想大幅改變業務作業方式。",
-    "questions": [
-      "這份資料在日常作業中可能經過哪些人與哪些系統？",
-      "哪些地方可能導致資料外流或權限失控？",
-      "外部廠商是否真的需要看到完整客戶名單？",
-      "如果要改善，如何兼顧業務效率與資料保護？",
-      "如果不能立刻導入昂貴工具，公司還能用哪些低成本方式降低雲端分享風險？"
-    ],
-    "keywords": [
-      "公開連結",
-      "外部廠商",
-      "客戶名單",
-      "權限失控"
-    ]
+    id:1,title:"業務雲端連結被轉傳，客戶名單對外開放",category:"雲端分享",difficulty:"入門",focus:"分享權限與資料最小化",
+    objective:"辨識雲端分享的資料流，並用低成本方式兼顧業務效率與外部合作。",
+    company:"45 人的設備代理商，業務部 12 人。客戶名單、報價歷程與採購習慣是核心營運資產，公司沒有專職資安人員。",
+    daily:"業務共同維護一份客戶總表，主管每週下載 Excel。為了外出查詢與合作方便，部門常使用「知道連結即可查看」。",
+    scenario:"設計廠商製作產業分布簡報後，另一家外部合作商也能開啟完整客戶名單。公司目前不知道連結被轉傳到哪裡。",
+    facts:["名單有 2,300 筆，包含聯絡方式、採購紀錄、折扣與負責業務。","設計廠商只需要產業別與縣市統計，不需要姓名或聯絡方式。","現有雲端方案可指定帳號、設定到期日，但沒有完整下載稽核。"],
+    constraints:["本週仍要完成簡報，不能中斷外部合作。","本季沒有採購 DLP 的預算。","只有一位兼任資訊窗口，每週可投入半天。","業務獎金與成交速度直接連動，主管擔心增加步驟會被私下繞過。"],
+    assets:["既有雲端可指定帳號、禁止公開連結並設定分享期限。","業務主管可在一小時內列出目前合作廠商與資料需求。","Excel 可先刪除姓名、電話與折扣欄位，只提供彙總資料。"],
+    roles:["業務主管","承辦業務","資訊窗口","外部廠商窗口"],
+    tasks:["畫出客戶總表從建立、下載到外部分享的資料流，選出前三大風險。","排出前 24 小時的止血、確認影響範圍與溝通行動。","提出三項優先改善，寫出 7／30／90 天負責人與驗收證據。"],
+    inject:{title:"事件轉折：連結曾公開 18 天",text:"廠商回覆曾把連結轉寄給兩位自由工作者，其中一人已下載檔案；雲端平台只能看到最近 7 天紀錄。",prompt:"你們原本的處置還夠嗎？需要新增哪些外部溝通、證據保存或長期控制？"},
+    keywords:["公開連結","客戶名單","外部分享","雲端"]
   },
   {
-    "id": 2,
-    "title": "行政人員誤寄報價單，將 A 客戶資料寄給 B 客戶",
-    "category": "人員操作",
-    "focus": "Email 誤寄與寄送流程",
-    "company": "某系統整合公司共有 30 位員工，主要業務是協助客戶建置資訊系統、網路設備與維護服務。公司案量不大但節奏很快，報價單、合約草稿、維護紀錄與客戶需求文件經常透過 Email 往來。行政人員只有 2 位，但每天要協助多位業務處理報價、合約、請款與客戶文件，也要處理總務、人事與會議行政支援。由於業務常要求快速寄出文件，行政人員經常在短時間內處理多封信件與多個附件。公司目前沒有電子郵件外寄審核系統，主要依靠人員自行確認收件人與附件內容。",
-    "daily": "行政人員每天要處理多位業務交辦的文件，有時一天會寄出數十封報價信。因為工作量大，行政工作常集中在下午或下班前完成。行政人員常依賴 Outlook 自動完成收件人功能，快速選取過去曾經寄送過的客戶信箱。",
-    "scenario": "某天下班前，業務臨時要求行政人員「趕快把修正版報價寄出去」。行政人員在寄信時選錯收件人，將 A 客戶的報價單寄給 B 客戶。附件中除了報價金額，還包含交易條件、聯絡窗口與內部折扣備註。事後行政人員發現寄錯，但不確定是否要立即通報主管，擔心自己會被責備。",
-    "challenge": "業務部希望行政單位能快速寄出報價，避免錯過客戶決策時間。主管曾考慮要求所有報價信都必須經過業務主管確認後才能寄出，但業務人員反映每封信都審會拖慢成交速度，也會增加主管負擔。顧問曾建議導入電子郵件 DLP、附件掃描與外寄審核系統，但公司目前使用一般企業信箱，若升級到完整控管方案，需要增加授權費與管理成本。",
-    "questions": [
-      "這個事件中，問題只出在行政人員個人疏忽嗎？",
-      "報價單寄送前，是否應有檢查或提醒機制？",
-      "哪些附件內容如果寄錯，後果會比較嚴重？",
-      "誤寄後第一時間應該怎麼處理？",
-      "在不大幅增加審核流程的情況下，如何降低誤寄與附件外洩風險？"
-    ],
-    "keywords": [
-      "誤寄",
-      "附件",
-      "報價單",
-      "通報"
-    ]
+    id:2,title:"行政誤寄報價單，把 A 客戶資料寄給 B 客戶",category:"人員操作",difficulty:"入門",focus:"誤寄通報與寄送流程",
+    objective:"建立不依賴個人小心的誤寄防護與事件通報流程。",
+    company:"30 人的系統整合公司，兩位行政人員每天處理數十封報價、合約與請款郵件，常在下班前收到急件。",
+    daily:"行政人員依賴郵件自動完成選取收件人，附件由業務透過聊天訊息交付。公司沒有外寄審核或郵件 DLP。",
+    scenario:"修正版報價寄出 10 分鐘後，行政人員發現選錯收件人。附件含價格、交易條件、聯絡窗口與內部折扣備註。",
+    facts:["郵件服務無法保證收回外部郵件。","B 客戶尚未回覆，也不確定是否已開啟附件。","公司目前沒有正式事件通報窗口，員工擔心通報會受責備。"],
+    constraints:["報價通常必須在 30 分鐘內寄出。","主管不同意每封郵件都人工審核。","短期只能使用既有郵件與雲端功能。","兩位行政同時負責總務與人事，無法增加全職覆核人力。"],
+    assets:["郵件系統已有延遲寄送、外部收件人提示與停用自動完成設定。","既有雲端可改用限期連結，寄錯時可撤銷存取。","業務可先在制式交辦單確認客戶、附件版本與敏感等級。"],
+    roles:["行政人員","業務主管","資訊窗口","客戶關係窗口"],
+    tasks:["判斷附件中哪些資料最敏感、可能對公司與客戶造成什麼影響。","列出發現後前 60 分鐘的行動順序、通報對象與需要保留的證據。","設計不讓所有郵件變慢的分級寄送流程，並提出成效指標。"],
+    inject:{title:"事件轉折：B 客戶來電詢問折扣",text:"寄出 25 分鐘後，B 客戶來電表示已看到附件，並詢問為何自己的折扣不如 A 客戶。",prompt:"除了要求刪除附件，公司還需要處理哪些客戶關係、法務或內部流程問題？"},
+    keywords:["Email","誤寄","附件","報價","通報"]
   },
   {
-    "id": 3,
-    "title": "離職業務仍可登入 CRM，兩週後匯出大量客戶資料",
-    "category": "離職交接",
-    "focus": "離職停權與交接",
-    "company": "某批發通路公司約 80 人，服務對象包含零售商、餐飲業者與地區經銷商。公司所有客戶聯絡紀錄、報價、訂單追蹤、客訴與折扣條件都集中在 CRM 系統。業務人員可登入 CRM 查看自己負責的客戶資料，業務主管則可查看整個部門的資料。公司業務流動率不低，人員常因轉職、績效或區域調整而離開。公司有人資部門，但人資主要負責勞健保、薪資與離職手續，對 CRM、Email、雲端硬碟、通訊群組與其他系統的權限並不熟悉。系統權限散落在不同平台，也沒有完整帳號清單。",
-    "daily": "公司雖有人資部門，但人資主要負責勞健保、薪資與離職手續，對各系統帳號權限並不熟悉。CRM、Email、雲端硬碟與通訊群組分別由不同人管理，沒有一張完整的帳號與權限清單。離職時，通常是主管想到哪個系統就通知哪個系統管理者停權。",
-    "scenario": "某位業務離職後，公司忙於交接客戶，因此暫時沒有立即停用該業務的 CRM 帳號。兩週後，主管檢查系統時發現該帳號仍有登入紀錄，且曾匯出多筆客戶資料。人資認為離職程序已經辦完，系統權限應由資訊部門處理；資訊人員表示沒有收到停權通知，也不知道哪些系統要關。",
-    "challenge": "業務主管認為離職交接期間有時確實需要保留一些存取權，不然交接很麻煩。顧問曾建議導入集中式身分管理系統或單一登入平台，但公司認為系統整合成本高，而且目前各部門已習慣使用不同工具。",
-    "questions": [
-      "離職時應該回收哪些帳號、設備與資料？",
-      "停權流程應由人資、主管還是資訊人員啟動？",
-      "離職前後大量下載資料是否一定有問題？如何判斷？",
-      "如何兼顧交接需要與資料保護？",
-      "如果短期內無法導入集中式帳號管理，離職停權流程至少應該怎麼設計？"
-    ],
-    "keywords": [
-      "離職停權",
-      "CRM",
-      "大量匯出",
-      "交接"
-    ]
+    id:3,title:"離職業務帳號未停用，兩週後匯出客戶資料",category:"離職交接",difficulty:"進階",focus:"身分生命週期與權責",
+    objective:"設計離職、調職與交接的帳號生命週期，避免用離職帳號延續工作。",
+    company:"80 人的批發通路公司，CRM、Email、雲端硬碟與通訊群組由不同人管理，沒有完整帳號清冊。",
+    daily:"離職流程由人資辦手續，主管口頭交接客戶；資訊人員只有收到通知才會停權。CRM 可匯出本人負責的客戶。",
+    scenario:"業務於星期五 18:00 正式離職，但 CRM 帳號未停用。兩週後系統發現該帳號從外部登入並匯出 1,850 筆客戶資料。",
+    facts:["離職前 30 天，該帳號平均每天匯出 20 筆；本次明顯超出基準。","客戶交接應在離職日前完成，新承辦人已於離職當天確認接手。","CRM 支援停權、匯出限制與登入日誌，但未設定自動到期。"],
+    constraints:["公司無法在三個月內導入 SSO 或集中身分管理。","每月平均有三次到職、調職或離職。","人資不知道各系統細節，資訊人員不知道人事生效時間。","各部門自行採購 SaaS，管理階層也沒有完整系統清單。"],
+    assets:["人資已有到離職名單與生效時間，可作為流程啟動來源。","CRM、郵件與雲端都能人工停權並查看基本登入紀錄。","可先用共用試算表建立系統、帳號擁有者與停權驗證清單。"],
+    roles:["人資","業務主管","資訊人員","法務／管理代表"],
+    tasks:["區分事件處置與流程根因，列出必須立即確認的帳號、設備、資料與證據。","設計離職生效前後的 RACI：誰啟動、誰核准、誰執行、誰驗證。","用既有工具提出 7／30／90 天方案，涵蓋到職、調職、離職與緊急停權。"],
+    inject:{title:"事件轉折：匯出 IP 屬於前員工住處",text:"調查確認登入來源與前員工平常遠端工作的 IP 相同，但前員工表示只是要找回『自己的客戶聯絡資料』。",prompt:"如何處理授權、客戶資料歸屬、證據保存與對外溝通？哪些事實仍待查明？"},
+    keywords:["離職","CRM","帳號停權","大量匯出","RACI"]
   },
   {
-    "id": 4,
-    "title": "客服多人共用後台帳號，會員資料被查詢卻無法追查",
-    "category": "帳號權限",
-    "focus": "共用帳號與查詢紀錄",
-    "company": "某電商公司客服部約 20 人，每天需要處理訂單查詢、退換貨、物流問題與會員資料異動。客服人員會透過會員後台查詢訂單狀態、地址、電話、付款紀錄與客服對話紀錄。客服採輪班制度，人員流動率較高，新人訓練時間短，主管希望新人能快速上線協助處理大量案件。客服系統是多年前委外開發的舊系統，雖然可以新增帳號，但權限設計較粗略，沒有完整的角色權限分級與欄位遮罩功能。客服部多年來為了方便交接與代理，使用同一組共用帳號登入後台。",
-    "daily": "這組帳密寫在部門交接文件中，方便新人快速上手。客服主管認為大家只是查資料回覆客人，沒有必要每個人都開一組帳號。客服系統是多年前委外開發的舊系統，雖然支援新增帳號，但權限分級功能不完整。",
-    "scenario": "某位會員投訴自己的個資疑似被外流。資訊人員調查後發現，後台紀錄顯示共用帳號曾查詢該會員資料，但無法確認實際操作的人是誰。客服部認為，如果每個人都改用個人帳號，輪班、代理與新人訓練會變麻煩。",
-    "challenge": "若要做到個人帳號、查詢紀錄、欄位遮罩與異常查詢警示，可能需要請廠商額外修改系統。客服主管擔心，如果限制太多，客服回覆速度會變慢，客戶滿意度會下降。",
-    "questions": [
-      "共用帳號看似方便，會帶來哪些管理問題？",
-      "客服是否需要看到完整地址、電話與所有歷史紀錄？",
-      "哪些資料可以遮罩？哪些操作需要留下紀錄？",
-      "如果要改成個人帳號，可能遇到哪些阻力？",
-      "在舊系統功能有限、客服工作又需要效率的情況下，應該如何分階段改善？"
-    ],
-    "keywords": [
-      "共用帳號",
-      "查詢紀錄",
-      "客服",
-      "欄位遮罩"
-    ]
+    id:4,title:"客服共用後台帳號，會員查詢紀錄無法追人",category:"帳號權限",difficulty:"中階",focus:"可歸責性與補償控制",
+    objective:"在舊系統限制下，分階段建立個人身分、最小權限與可追查性。",
+    company:"電商客服部 20 人、三班輪值，人員流動率高。會員後台可查地址、電話、付款紀錄與客服對話。",
+    daily:"所有客服使用同一組帳密，密碼寫在交接文件。舊系統能建立個人帳號，但角色權限只有『客服』與『管理員』兩種。",
+    scenario:"會員投訴個資疑似外流。後台顯示共用帳號曾查詢該會員，但無法確認實際操作人員。",
+    facts:["建立個人帳號不增加授權費，但每月需約兩小時維護。","日誌會記錄帳號、查詢時間與會員編號，不記錄查詢理由。","電話與地址目前無法遮罩，匯出功能只有管理員可用。"],
+    constraints:["客服回覆 SLA 為 5 分鐘。","系統改版最快需要六個月。","輪班代理與新人上線不能中斷。","客服旺季離職率高，主管不願維護複雜的權限組合。"],
+    assets:["建立個人帳號不增加授權費，現有日誌可記錄帳號與會員編號。","排班表、座位與 VPN 紀錄可作為短期調查的交叉證據。","主管帳號可保留匯出權，一般客服只需查詢與更新功能。"],
+    roles:["客服主管","輪班客服","資訊人員","個資事件窗口"],
+    tasks:["說明共用帳號如何影響預防、偵測、調查與責任釐清。","提出舊系統不改版時可立即採用的個人帳號與補償控制。","規劃六個月改善路線，定義日誌、權限、遮罩與異常查詢的驗收方式。"],
+    inject:{title:"事件轉折：同一會員被查詢 47 次",text:"近一個月紀錄顯示，該會員在沒有客服案件的日期仍被共用帳號查詢 47 次。",prompt:"你們會如何縮小調查範圍？目前還缺哪些紀錄，短期如何補足？"},
+    keywords:["共用帳號","客服","日誌","最小權限","舊系統"]
   },
   {
-    "id": 5,
-    "title": "承辦人用私人 LINE 傳送合約與身分證影本",
-    "category": "私人帳號",
-    "focus": "通訊軟體與行動裝置",
-    "company": "某教育訓練公司約 20 多位員工，常舉辦企業內訓、公開課程與講師合作專案。公司需要處理講師合約、學員報名資料、匯款資料、身分證影本、課程證明與客戶聯絡資訊。公司雖然有 Email 與雲端硬碟，但主管、講師與部分客戶平常都習慣用 LINE 快速溝通。公司內部文化偏向彈性與快速回覆，許多工作從通知、確認、催件到傳檔都在 LINE 上完成。員工多半使用個人手機處理工作訊息，公司沒有統一管理手機，也沒有明確規範哪些資料不能透過私人通訊軟體傳送。",
-    "daily": "許多工作事項從通知、確認、催件到傳檔都在 LINE 上完成。久而久之，承辦人習慣將文件拍照或截圖後傳到私人 LINE 群組，讓主管快速確認。主管也習慣用 LINE 快速回覆，反而不常登入公司雲端或 Email。",
-    "scenario": "某次承辦人為了確認講師合約資料，用私人 LINE 傳送合約掃描檔與客戶身分證影本給主管。幾天後，承辦人手機遺失。雖然手機有螢幕鎖，但公司無法確認 LINE 聊天紀錄、附件與圖片是否可能被他人取得。",
-    "challenge": "公司過去曾討論是否改用企業版通訊平台，但員工認為又要多裝一套工具，主管也擔心大家不願意改變習慣。顧問曾建議導入 MDM、企業通訊平台與行動裝置管理，但公司覺得成本太高，也不想管理員工私人手機。",
-    "questions": [
-      "哪些資料不適合透過私人通訊軟體傳送？",
-      "私人帳號處理公司資料，會讓公司失去哪些管理能力？",
-      "如果主管也習慣使用 LINE，員工該怎麼配合或改善？",
-      "公司可以提供哪些替代方式，而不是只說禁止？",
-      "如果無法立刻全面改用企業平台，至少哪些資料不能用私人 LINE 傳？"
-    ],
-    "keywords": [
-      "私人 LINE",
-      "手機遺失",
-      "身分證影本",
-      "通訊軟體"
-    ]
+    id:5,title:"承辦人用私人 LINE 傳送講師合約與身分證",category:"私人帳號",difficulty:"中階",focus:"私人裝置與替代流程",
+    objective:"釐清私人通訊工具的管理缺口，設計員工願意採用的安全替代流程。",
+    company:"20 人的教育訓練公司，經常處理講師合約、身分證影本、匯款資料與學員名單。主管和講師習慣使用 LINE。",
+    daily:"承辦人用私人手機拍攝或下載文件，再傳到主管與講師的 LINE 對話。公司有企業雲端，但手機登入步驟較多。",
+    scenario:"承辦人為確認講師資料，把講師合約與身分證影本傳給主管。三天後私人手機在捷運上遺失。",
+    facts:["手機有六位數螢幕鎖，但未啟用遠端清除。","LINE 桌面版仍登入承辦人的私人電腦，聊天附件可能已自動下載。","主管其實只需要確認姓名、課程與費用，不需要查看身分證影本。"],
+    constraints:["公司不管理員工私人手機，也沒有 MDM 預算。","主管要求急件 15 分鐘內回覆。","講師不願另外安裝企業 App。","老闆本人也習慣用 LINE 下指令，單靠公告很難改變文化。"],
+    assets:["公司已有企業雲端，可建立限時、指定收件人的上傳與檢視連結。","既有 Email 可寄通知，LINE 只傳『請至安全連結查看』。","承辦流程可先拆分：主管確認合約內容，身分證只交財務必要窗口。"],
+    roles:["承辦人","主管","資訊／行政窗口","講師窗口"],
+    tasks:["依資料敏感度判斷哪些內容不可透過私人通訊工具傳送，並說明理由。","排出遺失手機後的帳號、裝置、附件與人員溝通處置。","設計不只靠禁止的替代流程，包含急件例外、主管支持與落實證據。"],
+    inject:{title:"事件轉折：手機被解鎖後又上鎖",text:"帳號活動顯示手機遺失後曾短暫連線；承辦人記得螢幕鎖可能是容易猜到的生日。",prompt:"風險判斷與通報層級是否改變？還要查哪些裝置、備份或登入工作階段？"},
+    keywords:["LINE","私人手機","身分證","BYOD","裝置遺失"]
   },
   {
-    "id": 6,
-    "title": "主管出差筆電遺失，裡面有未加密薪資與考核資料",
-    "category": "可攜式設備",
-    "focus": "磁碟加密與本機保存",
-    "company": "某製造業公司約 150 人，有總公司與多個廠區。主管經常在不同廠區、客戶地點與供應商會議間移動，筆電是主要工作工具。人資部會定期提供主管員工排班、薪資、獎金、績效考核與人員調整資料，方便主管做部門管理與人事決策。公司要求員工筆電設定 Windows 登入密碼，但沒有統一啟用 BitLocker，也沒有集中保管復原金鑰。資訊人員只有 1 位，平常主要處理電腦維修、帳號問題、印表機與網路故障，沒有足夠時間逐台檢查裝置加密與本機資料保存狀態。",
-    "daily": "公司要求員工筆電設定 Windows 登入密碼，但沒有統一啟用 BitLocker，也沒有集中管理復原金鑰。許多主管為了離線方便，會把 Excel 檔存在桌面或下載資料夾。資訊人員只有 1 位，平常主要處理電腦維修、帳號問題與印表機故障，沒有足夠時間逐台檢查加密狀態。",
-    "scenario": "某位主管出差時筆電遺失。該筆電內有近期薪資資料、績效考核表與員工獎金資料。主管表示筆電有登入密碼，應該不容易被打開。但資訊人員提醒，如果硬碟未加密，仍可能被拆下讀取。人資擔心員工薪資與考核資料外流會造成內部信任問題。",
-    "challenge": "若全面要求筆電加密，部分主管擔心忘記密碼或系統異常時資料無法讀取。也有人擔心加密會讓電腦變慢，影響外出工作。公司目前也缺少人力逐台設定與追蹤。",
-    "questions": [
-      "登入密碼與磁碟加密有什麼差異？",
-      "主管是否真的需要保存完整薪資與考核資料在本機？",
-      "筆電遺失後，公司第一時間應該做什麼？",
-      "如何降低本機保存資料的風險？",
-      "若公司資源有限，應該先針對哪些設備或人員啟用加密？如何降低導入疑慮？"
-    ],
-    "keywords": [
-      "筆電遺失",
-      "磁碟加密",
-      "薪資資料",
-      "本機保存"
-    ]
+    id:6,title:"主管出差遺失未加密筆電，內有薪資資料",category:"可攜式設備",difficulty:"中階",focus:"磁碟加密與資料最小化",
+    objective:"同時處理裝置遺失事件，並規劃風險導向的加密與本機資料治理。",
+    company:"150 人的製造公司有多個廠區，主管經常攜帶筆電移動。資訊人員只有一位，主要處理維修與日常支援。",
+    daily:"主管把薪資、獎金與考核 Excel 下載到桌面離線使用。公司只要求登入密碼，未統一啟用磁碟加密。",
+    scenario:"主管在高鐵遺失公司筆電。筆電內有 126 位員工的薪資、考核與獎金資料，且無法遠端管理。",
+    facts:["該筆電支援 TPM 與 BitLocker，但目前未啟用。","雲端帳號已啟用 MFA；瀏覽器可能仍保有登入工作階段。","公司沒有集中保存復原金鑰，也沒有裝置清冊。"],
+    constraints:["一個月內只能完成 30 台設備設定。","主管擔心加密故障與忘記密碼影響工作。","部分廠區網路不穩，確實有離線作業需求。","資訊人員同時支援多個廠區，無法逐台到場處理。"],
+    assets:["高風險主管筆電已支援 TPM 與 BitLocker，不需另買軟體。","雲端帳號已有 MFA、登入紀錄與撤銷工作階段功能。","採購紀錄與電腦標籤可先整理出裝置清冊及優先順序。"],
+    roles:["遺失筆電主管","資訊人員","人資主管","管理代表"],
+    tasks:["列出遺失後前 24 小時的裝置、帳號、工作階段、證據與溝通處置。","判斷哪些資料不應長期留在本機，提出可支援離線工作的替代方式。","排出首批 30 台加密優先順序，設計復原金鑰、驗收與例外流程。"],
+    inject:{title:"事件轉折：有人嘗試登入薪資雲端",text:"筆電遺失六小時後，人資收到該主管帳號從陌生地點嘗試登入的警示，但 MFA 尚未通過。",prompt:"這仍只是裝置遺失，還是可能的資安事件？你們會新增哪些處置與監控？"},
+    keywords:["筆電","BitLocker","磁碟加密","薪資","本機資料"]
   },
   {
-    "id": 7,
-    "title": "外包廠商取得完整會員資料，專案結束後帳號仍可登入",
-    "category": "外部合作",
-    "focus": "廠商管理與測試資料",
-    "company": "某零售品牌約 70 人，經常舉辦會員活動、優惠活動與線上行銷專案。公司內部行銷部門重視活動能否準時上線，常委託外包廠商開發活動網站、會員報名系統與促銷工具。專案窗口通常是行銷或業務人員，他們熟悉活動需求，但不熟悉測試資料去識別化、帳號到期、測試環境隔離與資料刪除或銷毀確認等要求。公司沒有正式的供應商資安審查流程，也沒有固定的專案結案清單。過去專案多半靠信任與經驗合作，廠商帳號與測試資料常在專案結束後才被想起。",
-    "daily": "這次公司委託外包廠商開發會員活動報名系統。活動時程很趕，內部專案窗口希望廠商能快速完成測試，因此直接提供完整會員資料給廠商，讓廠商測試登入、報名與資料查詢流程。測試環境與正式環境資料相近，廠商帳號權限也開得較大。",
-    "scenario": "專案結束三個月後，公司發現外包廠商帳號仍可登入測試環境，而且測試資料庫中仍保留真實會員資料。專案窗口以為資訊人員會關帳號，資訊人員則表示沒有收到正式結案通知。廠商表示只是保留帳號以便後續維護，並沒有惡意。",
-    "challenge": "公司文化偏向重視速度與活動成效，資訊人員雖然提醒過資料保護問題，但常被認為是拖慢進度。曾有顧問建議導入供應商管理制度、測試環境隔離與資料遮罩工具，但主管認為公司規模不大，流程太正式會讓外包合作變慢。",
-    "questions": [
-      "外包廠商是否需要取得完整真實會員資料？",
-      "測試資料可以如何處理，避免直接使用真實個資？",
-      "專案結束時，應該檢查哪些帳號、資料與權限？",
-      "如果公司文化重視速度，資料保護措施要怎麼導入才不會被抗拒？",
-      "在外包合作頻繁的情況下，哪些資料保護要求是最低限度也應該做到的？"
-    ],
-    "keywords": [
-      "外包廠商",
-      "測試資料",
-      "專案結束",
-      "真實個資"
-    ]
+    id:7,title:"外包專案結束後，真實會員資料與帳號仍留存",category:"外部合作",difficulty:"進階",focus:"供應商生命週期與證據",
+    objective:"把供應商資安要求嵌入專案啟動、測試、維護與結案，而非只靠信任。",
+    company:"70 人的零售品牌經常委外開發活動網站。行銷重視上線速度，公司沒有供應商資安審查與結案清單。",
+    daily:"專案窗口直接提供完整會員資料做測試，廠商帳號有測試環境管理權限，合約只寫一般保密義務。",
+    scenario:"活動結束三個月後，公司發現廠商帳號仍可登入，測試資料庫仍保留 8,000 筆真實會員資料。",
+    facts:["廠商主張需保留環境一年以履行保固。","測試其實只需要年齡層、地區與模擬交易，不需要真實身分。","平台可設定帳號到期；資料庫可使用假資料，但需多兩天準備。"],
+    constraints:["下一個活動六週後上線。","行銷不接受增加超過兩天的開發時程。","現有合約沒有資料刪除證明與資安事件通知時限。","公司依賴少數熟悉業務的廠商，擔心要求太多會提高報價或拒接。"],
+    assets:["現有平台可設定廠商帳號期限與測試環境存取範圍。","團隊可用假姓名、假聯絡方式與抽樣交易建立測試資料。","採購可先把最低要求做成一頁附件與結案確認表，不必重建完整制度。"],
+    roles:["行銷專案經理","資訊人員","採購／法務","外包廠商"],
+    tasks:["盤點專案各階段的帳號、資料、環境與供應商風險。","提出本案立即處置，並定義公司需要廠商提供的確認與證據。","設計下一案的最低控制基準與結案清單，兼顧兩天時程限制。"],
+    inject:{title:"事件轉折：廠商再委外",text:"廠商坦承曾把測試工作交給另一家未列在合約中的協力公司，對方也曾取得測試環境帳號。",prompt:"供應鏈範圍如何改變？契約、帳號、資料流與通知要求要補什麼？"},
+    keywords:["外包","供應商","測試資料","真實個資","結案"]
   },
   {
-    "id": 8,
-    "title": "主管點擊釣魚信，攻擊者登入雲端硬碟下載部門資料",
-    "category": "社交工程",
-    "focus": "釣魚信、MFA 與異常登入",
-    "company": "某顧問公司約 60 人，主要提供企業顧問、教育訓練與專案輔導服務。公司大量使用雲端硬碟、Email 與線上協作工具處理客戶文件、專案簡報、報價資料與內部會議紀錄。主管常需要同時處理多個客戶專案，每天收到大量 Email、雲端共享通知、會議邀請與外部合作訊息。主管帳號因職務需要，可存取多個部門資料夾與客戶專案文件。公司曾做過年度資安宣導，但平常沒有定期社交工程演練，也沒有全面啟用 MFA；部分主管認為額外驗證會影響工作效率。",
-    "daily": "公司曾宣導不要點擊可疑連結，但主要是年度課程，平常沒有定期演練。資訊人員曾建議主管與高風險帳號啟用 MFA，但部分主管認為登入變麻煩，尤其在手機換機、出差或臨時登入時很不方便。",
-    "scenario": "某天主管收到一封偽裝成雲端硬碟通知的 Email，點擊連結後輸入帳號密碼。隔天，資訊人員發現該帳號從異常地點登入，並曾下載多個資料夾中的文件。有同仁認為這是主管自己不小心，也有人認為公司沒有啟用 MFA、沒有異常登入提醒，才讓事件擴大。",
-    "challenge": "顧問曾建議導入完整資安電子郵件閘道、端點偵測與身分防護方案，但公司認為成本太高，目前只想先從低成本措施開始。主管對額外登入步驟較排斥，認為會影響工作效率。",
-    "questions": [
-      "這是個人疏失，還是公司制度與技術防護不足？",
-      "主管帳號是否應該有更嚴格的保護？",
-      "帳號被盜後，第一時間應該做哪些處理？",
-      "教育訓練與 MFA 哪一個比較重要？還是兩者都需要？",
-      "如果主管覺得 MFA 麻煩，應如何說服與分階段推動？"
-    ],
-    "keywords": [
-      "釣魚信",
-      "MFA",
-      "異常登入",
-      "主管帳號"
-    ]
+    id:8,title:"主管點擊釣魚信，雲端帳號下載大量資料",category:"社交工程",difficulty:"進階",focus:"帳號接管與事件應變",
+    objective:"從偵測、限制影響、調查、溝通到復原，完整處理帳號接管事件。",
+    company:"60 人的顧問公司以雲端郵件與硬碟處理多個客戶專案。主管帳號可存取跨部門資料，尚未全面啟用 MFA。",
+    daily:"公司每年做一次宣導，但沒有定期演練。異常登入警示只寄給兼任資訊人員，夜間無人處理。",
+    scenario:"主管在仿冒雲端通知頁輸入密碼。隔天系統發現陌生地點登入，並下載多個客戶資料夾。",
+    facts:["事件發現時距離首次異常登入已 14 小時。","帳號尚未啟用 MFA，且同一密碼可能用於另一個服務。","雲端保留 90 天登入、分享、下載與郵件規則紀錄。"],
+    constraints:["公司先做低成本措施，本季無法採購完整身分防護平台。","主管出差多，反對頻繁額外驗證。","客戶合約要求資安事件須在約定時間內通知窗口。","唯一資訊人員不可能全天候盯警示，夜間與假日是監控空窗。"],
+    assets:["既有雲端保留 90 天登入、郵件規則、分享與下載紀錄。","平台已含基本 MFA、工作階段撤銷與異常登入通知，不需加購。","可先將主管、財務與管理帳號列為第一批，並建立電話通報樹。"],
+    roles:["受害主管","資訊人員","客戶專案主管","管理／法務代表"],
+    tasks:["依順序提出停權、撤銷工作階段、密碼、日誌、設備與資料範圍的處置。","判斷內外部溝通前需要哪些事實；區分已知、未知與推測。","規劃 7／30／90 天身分防護、監控、演練與主管採用方案。"],
+    inject:{title:"事件轉折：攻擊者建立郵件轉寄規則",text:"調查發現攻擊者建立隱藏轉寄規則，並搜尋過「合約、報價、密碼」等關鍵字。單純改密碼不會刪除既有規則。",prompt:"如何重新界定事件期間、受影響資料與復原完成條件？"},
+    keywords:["釣魚","MFA","帳號接管","異常登入","事件應變"]
   },
   {
-    "id": 9,
-    "title": "活動報名資料匯出成 Excel 後，被多個單位各自保存",
-    "category": "資料保存",
-    "focus": "保存期限與欄位最小化",
-    "company": "某協會約 30 人，每月舉辦講座、研討會與會員交流活動。活動報名資料通常透過線上表單蒐集，內容包含姓名、電話、Email、公司職稱、飲食需求、報到狀態與參與紀錄。公司活動頻繁，但承辦人力有限，大家習慣使用 Excel 整理名單，覺得直接寄檔最方便。活動結束後，報名名單常被報到組、行銷組、客服、講師與合作單位各自保存，沒有明確保存期限與刪除責任。公司目前沒有導入正式 CRM 或活動報名管理系統，主要依靠表單與試算表完成作業。",
-    "daily": "承辦人每次活動都會從線上表單下載報名名單，再用 Excel 分給報到組、行銷組、客服、講師或合作單位。活動結束後，各單位是否刪除資料沒有統一規定。行銷部門希望保留名單做後續活動通知，客服希望保留資料以便回覆參加者問題，承辦人也希望保留舊名單方便下次活動複製格式。",
-    "scenario": "半年後，公司在多位同仁的電腦、Email 附件與雲端資料夾中發現同一批報名資料。部分資料也曾傳給外部講師與合作單位。沒有人能確認目前哪些人還保存這份名單。承辦人認為這只是活動報名資料，不算很機密；行銷人員則認為名單留著以後還可以用。",
-    "challenge": "若導入正式報名系統或 CRM，雖然可集中管理資料，但公司認為系統費用與建置時間過高，不符合目前活動規模。短期內仍會以 Excel 作業為主。",
-    "questions": [
-      "活動報名資料中，哪些欄位真的有必要分享？",
-      "不同單位是否都需要完整名單？",
-      "活動結束後，資料應保存多久？誰負責清理？",
-      "外部講師或合作單位需要看到哪些資料？",
-      "如果仍要使用 Excel 作業，如何降低資料被多次複製、長期保存與欄位過度分享的風險？"
-    ],
-    "keywords": [
-      "Excel 擴散",
-      "保存期限",
-      "欄位最小化",
-      "外部分享"
-    ]
+    id:9,title:"活動報名 Excel 散落多處，沒人知道何時刪除",category:"資料保存",difficulty:"進階",focus:"目的、欄位與保存期限",
+    objective:"依蒐集目的與業務必要性建立資料最小化、分享及保存清理矩陣。",
+    company:"30 人的協會每月辦活動，以表單和 Excel 處理姓名、電話、Email、公司職稱、飲食需求與出席紀錄。",
+    daily:"承辦人把完整名單寄給報到、客服、行銷、講師與合作單位；活動後各自保存，沒有統一期限與清理責任。",
+    scenario:"半年後，同一批 600 人名單出現在九台電腦、18 封郵件與六個雲端資料夾，沒人能確認外部副本。",
+    facts:["報名告知用途是活動聯繫與執行；只有 35% 另行同意接收行銷。","客服通常在活動後 90 天內處理退費與證明問題。","講師只需顯示姓名與飲食需求；合作單位只需匿名人數統計。"],
+    constraints:["短期仍需使用 Excel。","財務憑證另有法令或業務保存需求，但不需要保留完整活動名單。","公司沒有集中 DLP 或自動刪除工具。","承辦人常一人負責活動全流程，活動結束後很快投入下一場，缺少清理時間。"],
+    assets:["線上表單已能分開記錄活動聯繫與行銷同意。","既有雲端可用檢視權限、到期日及固定資料夾取代郵件附件。","Excel 可依角色產生不同欄位版本，並用一張清理清單留下刪除證據。"],
+    roles:["活動承辦","行銷","客服／財務","資料保護窗口"],
+    tasks:["製作資料—目的—使用者矩陣，判斷各角色真正需要的欄位。","針對目前散落副本提出盤點、停止利用、回收／刪除與外部確認方案。","建立保存期限表：起算點、期限依據、例外、負責人與刪除證據。"],
+    inject:{title:"事件轉折：行銷已把名單匯入寄信工具",text:"行銷沒有區分是否同意，已把 600 人全部匯入第三方寄信平台，並寄出一次活動宣傳。",prompt:"原本的清理方案需要增加哪些停止利用、名單分流、第三方處理與溝通行動？"},
+    keywords:["Excel","保存期限","行銷同意","資料最小化","刪除"]
   },
   {
-    "id": 10,
-    "title": "財務共用雲端資料夾權限過大，新進實習生也看得到",
-    "category": "帳號權限",
-    "focus": "資料夾權限與角色權限分級",
-    "company": "某貿易公司約 100 人，財務部門只有 6 位正式員工，旺季會加入實習生或臨時人員協助整理發票與付款文件。財務部使用雲端資料夾保存付款申請、發票掃描檔、廠商帳戶資料、付款紀錄與內部審核意見。財務資料夾多年來都用同一個主要資料夾管理，因為主管認為資料集中放最容易找。財務部平常工作繁忙，請款、付款、對帳與稅務作業都有期限壓力，大家不希望資料夾切得太細，否則會影響找檔案與日常作業效率。",
-    "daily": "財務資料夾多年來都用同一個主要資料夾管理，因為主管認為資料集中放最容易找。只要是財務部成員，幾乎都能看到整個資料夾。財務部平常工作繁忙，大家不希望資料夾切得太細，否則找檔案、請款與對帳會變慢。",
-    "scenario": "某次新進實習生協助整理發票，主管為了方便，直接將實習生加入整個財務共用資料夾。後來才發現，實習生不只看得到發票，也看得到付款紀錄、廠商帳戶資訊與內部審核意見。財務主管認為資料夾如果切得太細，大家會找不到資料，工作會變慢。",
-    "challenge": "資訊人員建議依資料敏感程度分層管理，但財務部擔心改動後會影響既有流程。顧問曾建議導入雲端權限治理與資料分類標籤工具，但公司目前預算不足，也缺少專人維護複雜權限規則。",
-    "questions": [
-      "同一部門的人是否都需要相同權限？",
-      "實習生完成工作真正需要看到哪些資料？",
-      "資料夾權限繼承可能造成什麼問題？",
-      "如何設計不太複雜、但又能降低風險的權限分層？",
-      "如果不能導入昂貴工具，如何用簡單資料夾分層與權限規則降低風險？"
-    ],
-    "keywords": [
-      "財務資料",
-      "實習生",
-      "資料夾權限",
-      "最小權限"
-    ]
+    id:10,title:"財務共用資料夾權限過大，實習生看見付款資料",category:"帳號權限",difficulty:"入門",focus:"角色權限與簡單分層",
+    objective:"把最小權限轉化成清楚、可維護的資料夾結構與角色權限矩陣。",
+    company:"100 人的貿易公司，財務部六人，旺季有實習生協助發票。付款、發票、廠商帳戶與審核意見都放在同一資料夾。",
+    daily:"只要加入財務群組就能看到全部內容。主管擔心資料夾切太細，會讓請款、對帳與代理工作變慢。",
+    scenario:"新進實習生為整理發票被加入整個財務資料夾，因此看得到付款紀錄、廠商帳戶與內部審核意見。",
+    facts:["實習生只需上傳發票、標記月份與廠商名稱，不需看付款金額。","雲端支援子資料夾權限、群組與到期日。","財務主管、出納、會計與實習生的工作內容不同。"],
+    constraints:["只能維護最多四個權限群組。","實習期兩個月，可能輪調工作。","月底關帳期間不能大幅搬動資料。","財務部沒有專人管理權限，任何複雜設計最後都會落到主管身上。"],
+    assets:["雲端已有群組、子資料夾權限、到期日與基本存取紀錄。","實習生工作可改成上傳區，不必開放歷史付款與審核資料。","可利用關帳後的固定半天分批搬移，不必一次重整所有年度資料。"],
+    roles:["財務主管","會計","出納","實習生／資訊窗口"],
+    tasks:["依工作必要性設計四類資料區與角色的檢視、上傳、修改、分享權限。","提出本案立即縮權、確認存取紀錄與人員溝通方式。","安排不影響關帳的分階段搬移、到期與定期權限複核。"],
+    inject:{title:"事件轉折：實習生曾下載整個資料夾",text:"存取紀錄顯示實習生第一週曾使用同步功能，把整個財務資料夾下載到私人筆電。",prompt:"權限調整之外，現在需要哪些資料、裝置、證據與人員處置？"},
+    keywords:["財務","實習生","資料夾","最小權限","權限矩陣"]
   },
   {
-    "id": 11,
-    "title": "公司用 Excel 管理所有帳號密碼，檔案放在共用資料夾",
-    "category": "帳號權限",
-    "focus": "密碼管理與特權帳號",
-    "company": "某 25 人新創公司沒有專職資訊人員。每個部門都自己管理帳號，例如社群平台、廣告帳號、官網後台、金流平台、雲端硬碟與外包廠商帳號。公司文化重視速度與彈性，很多事情靠信任與默契完成，大家不喜歡繁瑣制度。為了避免帳密散在個人手上，公司整理了一份帳密 Excel，放在共用資料夾中供主管、行政、行銷與外部廠商需要時使用。主管認為公司小，不可能每件事都制度化，先能運作最重要。",
-    "daily": "為了避免帳密散在個人手上，公司整理了一份帳密 Excel，放在共用資料夾。檔案有設定密碼，但檔案密碼也寫在部門群組公告中。主管認為公司小，不可能每件事都制度化，先能運作最重要。",
-    "scenario": "某位員工離職後，公司才發現他過去曾下載過帳密 Excel。該檔案內包含多個重要服務的帳號密碼，其中部分帳號仍是共用帳號，無法確認離職員工是否仍能登入。主管開始思考是否要導入密碼管理器，但有人認為現在沒有出事，不需要把流程搞得太複雜。",
-    "challenge": "外部顧問建議導入企業密碼管理器、特權帳號管理與 MFA，但主管擔心員工不會用、忘記主密碼、工具費用增加，也擔心帳號管理變複雜後影響日常作業。",
-    "questions": [
-      "用 Excel 保存帳密方便在哪裡？風險又在哪裡？",
-      "哪些帳號一旦外洩影響最大？",
-      "如果暫時不導入密碼管理器，至少應先做哪三件事？",
-      "若導入密碼管理器，可能遇到哪些阻力？",
-      "如何在不過度增加管理成本的情況下改善帳號管理？"
-    ],
-    "keywords": [
-      "密碼 Excel",
-      "特權帳號",
-      "共用密碼",
-      "離職風險"
-    ]
+    id:11,title:"公司用 Excel 管理所有共用帳密",category:"帳號權限",difficulty:"中階",focus:"密碼與特權帳號治理",
+    objective:"從帳號盤點、個人化、MFA、密碼輪替到復原，規劃可落地的遷移。",
+    company:"25 人的新創沒有專職資訊人員，各部門自行管理官網、金流、廣告、社群、雲端與外包帳號。",
+    daily:"帳密 Excel 放在共用資料夾並設檔案密碼，但開檔密碼寫在部門群組公告。主管與部分廠商可下載。",
+    scenario:"員工離職後，公司發現他曾下載帳密檔。部分重要服務仍使用共用帳號，無法確認前員工是否登入。",
+    facts:["金流、網域與主要雲端帳號支援個人管理者與 MFA。","社群平台可委派角色，不必分享主密碼。","公司尚未列出帳號擁有者、復原方式與重要性。"],
+    constraints:["行政每週只能投入三小時整理。","一個月內無法完成所有系統遷移。","主管擔心只有一人持有帳號會造成單點風險。","新創服務更換快、帳號建立隨意，沒有人願意當全部系統的永久管理者。"],
+    assets:["最重要的金流、網域與雲端皆支援個人管理員、角色委派與 MFA。","行政可先用帳號清冊記錄擁有者、重要性、復原方式與最後複核日。","既有平台可設兩位管理者與共用復原信箱，降低單點風險。"],
+    roles:["公司負責人","行政","行銷／財務代表","離職交接窗口"],
+    tasks:["先以營運、金流、資料與商譽影響排出帳號處理優先序。","列出前 24 小時應輪替、停權、撤銷工作階段及確認的項目。","提出 7／30／90 天遷移：個人帳號、MFA、密碼管理器、緊急存取與定期複核。"],
+    inject:{title:"事件轉折：公司網域即將到期",text:"盤點時發現網域註冊帳號綁定前員工私人 Email，七天後到期；目前沒有人能收到復原信。",prompt:"優先序如何改變？如何避免未來帳號復原依賴單一個人？"},
+    keywords:["密碼","Excel","特權帳號","MFA","離職"]
   },
   {
-    "id": 12,
-    "title": "客服把客訴截圖貼到社群群組，無意間露出客戶個資",
-    "category": "人員操作",
-    "focus": "截圖分享與最小揭露",
-    "company": "某線上服務公司客服人員每天需要處理大量客訴、技術問題與帳務查詢。因為客服系統與工單系統功能有限，客服常直接截圖貼到內部社群群組，請技術、營運或行銷同仁協助判斷。群組成員包含客服、技術、行銷、主管與曾參與專案的人，隨著專案增加，群組成員越來越多卻很少清理。公司文化重視快速支援與即時回覆，客服主管擔心如果每次都要求走正式工單流程，客戶等待時間會變長，也會增加客服人員負擔。",
-    "daily": "大家覺得群組討論很快，問題可以即時解決。客服人員常遇到複雜客訴，需要請技術、營運或行銷同仁協助判斷。為了快速討論，客服習慣直接將客訴畫面截圖後貼到群組中。",
-    "scenario": "某次客服人員為了詢問技術問題，把客戶對話截圖貼到跨部門群組。截圖中露出客戶姓名、電話、Email、訂單編號與完整客訴內容。原本只是內部求助，但群組中其實有許多不需要接觸該客戶資料的人。客服表示如果每次截圖都要遮資料，會很慢。",
-    "challenge": "若要求所有問題都必須進工單系統，客服擔心處理速度變慢。顧問曾建議導入完整客服工單系統、截圖遮罩工具與權限分組，但公司短期內沒有預算更換系統，也不希望增加客服人員負擔。",
-    "questions": [
-      "內部群組是否就代表資料分享是安全的？",
-      "截圖中哪些資訊應該遮罩？",
-      "哪些人真的需要看到完整客戶資料？",
-      "是否有比直接貼截圖更好的協作方式？",
-      "如果仍要保留快速討論的工作方式，如何避免截圖揭露過多客戶資料？"
-    ],
-    "keywords": [
-      "截圖分享",
-      "客戶個資",
-      "內部群組",
-      "最小揭露"
-    ]
+    id:12,title:"客服把含個資的客訴內容貼進生成式 AI",category:"生成式 AI",difficulty:"入門",focus:"AI 使用與資料最小揭露",
+    objective:"辨識生成式 AI 的資料輸入與第三方處理風險，建立可用而非只靠禁止的規範。",
+    company:"線上服務公司客服每天處理客訴、退款與技術問題。公司允許使用公開生成式 AI 協助潤稿，但沒有資料分類或輸入規範。",
+    daily:"客服為了快速整理客訴，常把對話貼入個人 AI 帳號，再把摘要貼到跨部門群組。主管只關心回覆速度。",
+    scenario:"客服把包含姓名、電話、Email、訂單、付款末碼與完整客訴的內容貼入公開 AI 服務，並分享對話連結給同事。",
+    facts:["公司沒有與該 AI 服務簽企業資料處理協議。","同事只需要問題類型、錯誤訊息與處理結果，不需要客戶識別資料。","客服系統可匯出文字，但沒有自動去識別功能。"],
+    constraints:["短期不全面禁止 AI，也沒有企業版 AI 預算。","人工遮罩每案最多只能多花一分鐘。","客服 SLA 為 10 分鐘。","主管擔心規定太嚴，員工改用公司看不到的私人帳號。"],
+    assets:["客服系統可匯出純文字，先刪除姓名、電話、Email、訂單與付款資訊。","公司可提供核准用途與禁止資料的一頁提示及去識別範例。","既有內部群組可只分享問題摘要與錯誤碼，不分享公開 AI 對話連結。"],
+    roles:["客服人員","客服主管","資訊／個資窗口","營運／法務代表"],
+    tasks:["圈定不應輸入公開 AI 的資料，說明目的、必要性與第三方處理風險。","提出本案立即處置：連結、對話、帳號、影響範圍、證據與通報。","設計一分鐘內可完成的去識別流程、允許／禁止規則、教育與抽查指標。"],
+    inject:{title:"事件轉折：分享連結可被搜尋到",text:"客服發現對話分享設定為『知道連結即可查看』，而連結曾貼在有外包人員的群組；目前已有 23 次瀏覽。",prompt:"事件範圍與第三方風險如何改變？你們需要向哪些內外部角色取得什麼資訊？"},
+    keywords:["生成式 AI","客訴","個資","公開連結","去識別"]
   }
 ];
 
-const cardsEl = document.getElementById('cards');
-const countText = document.getElementById('countText');
-const keywordEl = document.getElementById('keyword');
-const categoryEl = document.getElementById('category');
-const modal = document.getElementById('modalBackdrop');
-const modalTitle = document.getElementById('modalTitle');
-const modalSub = document.getElementById('modalSub');
-const modalBody = document.getElementById('modalBody');
-const copyArea = document.getElementById('copyArea');
+const els = {
+  cards:document.getElementById('cards'),count:document.getElementById('countText'),group:document.getElementById('groupName'),
+  keyword:document.getElementById('keyword'),category:document.getElementById('category'),difficulty:document.getElementById('difficulty'),
+  modal:document.getElementById('modalBackdrop'),modalTitle:document.getElementById('modalTitle'),modalKicker:document.getElementById('modalKicker'),
+  modalBody:document.getElementById('modalBody'),modalGroup:document.getElementById('modalGroup'),toast:document.getElementById('toast'),
+  timerDisplay:document.getElementById('timerDisplay'),timerToggle:document.getElementById('timerToggle')
+};
+let activeScenario = null;
+let lastScenarioTrigger = null;
+let timerSeconds = 1200;
+let timerHandle = null;
+let toastHandle = null;
 
-function listHtml(arr){ return '<ul>' + arr.map(x => '<li>' + x + '</li>').join('') + '</ul>'; }
+function safeStore(key,value){try{localStorage.setItem(key,value)}catch(e){}}
+function safeLoad(key,fallback=''){try{return localStorage.getItem(key) ?? fallback}catch(e){return fallback}}
+function safeRemove(key){try{localStorage.removeItem(key)}catch(e){}}
+function escapeHtml(value){return String(value).replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]))}
+function listHtml(items){return '<ul>'+items.map(item=>`<li>${escapeHtml(item)}</li>`).join('')+'</ul>'}
+function difficultyClass(level){return level==='入門'?'easy':level==='中階'?'medium':'hard'}
+function excerpt(text,n=92){return text.length>n?text.slice(0,n)+'…':text}
 function filteredScenarios(){
-  const kw = keywordEl.value.trim().toLowerCase();
-  const cat = categoryEl.value;
-  return scenarios.filter(s => {
-    const blob = JSON.stringify(s).toLowerCase();
-    return (cat === 'all' || s.category === cat) && (!kw || blob.includes(kw));
+  const keyword=els.keyword.value.trim().toLowerCase(),category=els.category.value,difficulty=els.difficulty.value;
+  return scenarios.filter(s=>{
+    const blob=JSON.stringify(s).toLowerCase();
+    return (category==='all'||s.category===category)&&(difficulty==='all'||s.difficulty===difficulty)&&(!keyword||blob.includes(keyword));
   });
 }
-function excerpt(text, n=90){ return text.length>n ? text.slice(0,n)+'…' : text; }
 function renderCards(){
-  const items = filteredScenarios();
-  countText.textContent = `目前顯示 ${items.length} / ${scenarios.length} 個情境`;
-  if(!items.length){
-    cardsEl.innerHTML = '<div class="student-card"><h2>找不到符合條件的情境</h2><p>請調整關鍵字、風險類型或篩選。</p></div>';
-    return;
-  }
-  cardsEl.innerHTML = items.map(s => `
+  const items=filteredScenarios();
+  els.count.textContent=`目前顯示 ${items.length} / ${scenarios.length} 個情境`;
+  if(!items.length){els.cards.innerHTML='<article class="panel empty"><h2>找不到符合條件的情境</h2><p>請調整關鍵字、類型或難度。</p></article>';return}
+  els.cards.innerHTML=items.map(s=>`
     <article class="card">
-      <div class="meta">
-        <span class="tag type">${s.category}</span>
-        <span class="tag focus">${s.focus}</span>
-      </div>
-      <h2>${s.id}. ${s.title}</h2>
-      <div class="company"><strong>公司背景：</strong>${excerpt(s.company, 128)}</div>
-      <p><strong>事件狀況：</strong>${excerpt(s.scenario, 118)}</p>
-      <div class="scenario-block warn"><div class="section-title">導入挑戰</div><p>${excerpt(s.challenge, 120)}</p></div>
-      <div class="scenario-block reflect"><div class="section-title">討論提示</div><ul>${s.questions.slice(0,2).map(x=>'<li>'+x+'</li>').join('')}</ul></div>
-      <div class="actions">
-        <button onclick="openScenario(${s.id})">查看情境內容</button>
-      </div>
+      <div class="meta"><span class="tag type">${escapeHtml(s.category)}</span><span class="tag ${difficultyClass(s.difficulty)}">${s.difficulty}</span><span class="tag focus">${escapeHtml(s.focus)}</span></div>
+      <h2>${s.id}. ${escapeHtml(s.title)}</h2>
+      <div class="objective"><strong>學習目標：</strong>${escapeHtml(s.objective)}</div>
+      <div class="preview"><strong>事件：</strong>${escapeHtml(excerpt(s.scenario))}</div>
+      <div class="constraint-preview"><strong>主要限制：</strong>${escapeHtml(excerpt(s.constraints[0],70))}</div>
+      <div class="actions"><button class="btn" data-open-scenario="${s.id}">開啟討論工作台</button></div>
     </article>`).join('');
 }
-function scenarioText(s){
-  return `${s.id}. ${s.title}
-風險類型：${s.category}
-討論焦點：${s.focus}
-
-公司背景：
-${s.company}
-
-日常作業：
-${s.daily}
-
-情境描述：
-${s.scenario}
-
-導入挑戰：
-${s.challenge}
-
-請小組討論：
-${s.questions.map((x,i)=>`${i+1}. ${x}`).join('\n')}
-
-5 分鐘報告框架：
-1. 1 分鐘：公司背景、重要資料與日常流程。
-2. 1.5 分鐘：前三大外洩風險。
-3. 1.5 分鐘：最優先改善措施與執行步驟。
-4. 1 分鐘：導入阻力、配套措施與下一步行動。`;
-}
+function groupStorageId(){return encodeURIComponent((els.group.value.trim()||'未命名小組').toLowerCase())}
+function worksheetKey(id,field){return `dlw:${groupStorageId()}:${id}:${field}`}
+function fieldValue(id,field){return escapeHtml(safeLoad(worksheetKey(id,field))) }
 function openScenario(id){
-  const s = scenarios.find(x => x.id === id);
-  if(!s) return;
-  modalTitle.textContent = `${s.id}. ${s.title}`;
-  modalSub.textContent = `${s.category}｜${s.focus}`;
-  copyArea.value = scenarioText(s);
-  modalBody.innerHTML = `
+  const s=scenarios.find(item=>item.id===id);if(!s)return;
+  if(!els.group.value.trim())showToast('建議先輸入小組名稱，避免與其他使用者共用紀錄。');
+  activeScenario=s;resetTimer();
+  els.modalTitle.textContent=`${s.id}. ${s.title}`;
+  els.modalKicker.textContent=`${s.category}｜${s.difficulty}｜${s.focus}`;
+  updateGroupDisplay();
+  els.modalBody.innerHTML=`
     <div class="detail-grid">
-      <section class="detail-box full"><h3>公司背景</h3><p>${s.company}</p></section>
-      <section class="detail-box"><h3>日常作業</h3><p>${s.daily}</p></section>
-      <section class="detail-box"><h3>情境描述</h3><p>${s.scenario}</p></section>
-      <section class="detail-box full challenge"><h3>導入挑戰</h3><p>${s.challenge}</p></section>
-      <section class="detail-box full reflect"><h3>請小組討論</h3>${listHtml(s.questions)}</section>
-      <section class="detail-box full"><h3>5 分鐘報告框架</h3>
-        <ol>
-          <li><strong>1 分鐘：</strong>公司背景、重要資料與日常流程。</li>
-          <li><strong>1.5 分鐘：</strong>前三大外洩風險。</li>
-          <li><strong>1.5 分鐘：</strong>最優先改善措施與執行步驟。</li>
-          <li><strong>1 分鐘：</strong>導入阻力、配套措施與下一步行動。</li>
-        </ol>
-      </section>
-    </div>`;
-  modal.classList.add('open');
-  document.body.style.overflow='hidden';
+      <section class="detail-box full"><h3>學習目標</h3><p>${escapeHtml(s.objective)}</p></section>
+      <section class="detail-box"><h3>公司與日常流程</h3><p>${escapeHtml(s.company)} ${escapeHtml(s.daily)}</p></section>
+      <section class="detail-box"><h3>事件狀況</h3><p>${escapeHtml(s.scenario)}</p></section>
+      <section class="detail-box facts"><h3>已知事實</h3>${listHtml(s.facts)}</section>
+      <section class="detail-box constraints"><h3>中小企業現實難題</h3>${listHtml(s.constraints)}</section>
+      <section class="detail-box assets"><h3>手上已有、可以先利用的資源</h3>${listHtml(s.assets)}</section>
+      <section class="detail-box full roles"><h3>建議角色分工</h3><p>每人選一個立場；報告時要說明不同角色的顧慮。</p><div class="role-row">${s.roles.map(role=>`<span class="role-chip">${escapeHtml(role)}</span>`).join('')}</div></section>
+    </div>
+    <section class="tasks"><h3>小組必須完成的三項任務</h3><ol class="task-list">${s.tasks.map(task=>`<li>${escapeHtml(task)}</li>`).join('')}</ol>
+      <div class="decision-rule"><strong>中小企業決策規則：</strong>7 天方案不得新增採購，必須先使用「手上已有資源」；30／90 天才可提出投資，且要說明何種風險、工作量或成效門檻達到時才值得花錢。</div>
+    </section>
+    <section class="inject">
+      <h3>${escapeHtml(s.inject.title)}</h3><p class="inject-note">先完成初步方案；計時器剩下約 8 分鐘時再揭露。</p>
+      <button class="btn" id="revealInject" aria-expanded="false">揭露事件轉折</button>
+      <div class="inject-content" id="injectContent"><p><strong>新資訊：</strong>${escapeHtml(s.inject.text)}</p><p><strong>請修正：</strong>${escapeHtml(s.inject.prompt)}</p></div>
+    </section>
+    <section class="worksheet">
+      <div class="worksheet-intro"><div><h3>小組討論紀錄</h3><p class="hint">內容會自動保存在這台裝置；請勿填入真實個資或公司機密。</p></div><span class="save-state" id="saveState">等待輸入</span></div>
+      <div class="worksheet-grid">
+        <div class="work-field"><label for="field-risk">1. 重要資料、資料流與前三大風險</label><p class="hint">包含影響、可能性與根因，不要只列事件結果。</p><textarea id="field-risk" data-field="risk">${fieldValue(s.id,'risk')}</textarea></div>
+        <div class="work-field"><label for="field-response">2. 前 24 小時行動</label><p class="hint">依順序列出止血、證據、範圍確認與溝通。</p><textarea id="field-response" data-field="response">${fieldValue(s.id,'response')}</textarea></div>
+        <div class="work-field"><label for="field-controls">3. 優先三項改善與取捨</label><p class="hint">先用現有資源，說明為何優先，以及對效率、成本與人力的影響。</p><textarea id="field-controls" data-field="controls">${fieldValue(s.id,'controls')}</textarea></div>
+        <div class="work-field"><label for="field-roadmap">4. 7／30／90 天落地計畫</label><p class="hint">每項需有負責人、期限、驗收證據、殘餘風險與啟動投資的條件。</p><textarea id="field-roadmap" data-field="roadmap">${fieldValue(s.id,'roadmap')}</textarea></div>
+        <div class="work-field full"><label for="field-report">5. 五分鐘報告草稿</label><p class="hint">45 秒情境與資料 → 75 秒風險與根因 → 60 秒立即應變 → 75 秒改善與路線 → 45 秒取捨與殘餘風險。</p><textarea id="field-report" data-field="report">${fieldValue(s.id,'report')}</textarea></div>
+        <div class="rubric"><h4>報告自我檢核｜每項 0–4 分，共 20 分</h4><div class="rubric-row"><span>風險有事實依據</span><span>應變順序可執行</span><span>7 天方案不靠採購</span><span>責任與驗收明確</span><span>說明取捨與殘餘風險</span></div></div>
+      </div>
+    </section>`;
+  els.modal.classList.add('open');document.body.style.overflow='hidden';
   document.getElementById('closeModal').focus();
 }
-function closeModal(){ modal.classList.remove('open'); document.body.style.overflow=''; }
-keywordEl.addEventListener('input', renderCards);
-categoryEl.addEventListener('change', renderCards);
-document.getElementById('resetBtn').addEventListener('click',()=>{ keywordEl.value=''; categoryEl.value='all'; renderCards(); });
-document.getElementById('randomBtn').addEventListener('click',()=>{ const items=filteredScenarios(); if(!items.length) return; openScenario(items[Math.floor(Math.random()*items.length)].id); });
-document.getElementById('closeModal').addEventListener('click', closeModal);
-document.getElementById('closeModal2').addEventListener('click', closeModal);
-document.getElementById('printBtn').addEventListener('click',()=>window.print());
-document.getElementById('copyBtn').addEventListener('click',async()=>{ copyArea.select(); copyArea.setSelectionRange(0,99999); try{ await navigator.clipboard.writeText(copyArea.value); }catch(e){ document.execCommand('copy'); } alert('已複製完整情境文字。'); });
-modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
-document.addEventListener('keydown',e=>{ if(e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
-renderCards();
+function closeModal(){pauseTimer();els.modal.classList.remove('open');document.body.style.overflow='';activeScenario=null;if(lastScenarioTrigger)lastScenarioTrigger.focus()}
+function updateGroupDisplay(){const name=els.group.value.trim()||'未命名';els.modalGroup.textContent=`目前小組：${name}`}
+function formatTime(seconds){const m=Math.floor(seconds/60),s=seconds%60;return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`}
+function updateTimer(){els.timerDisplay.textContent=formatTime(timerSeconds);if(timerSeconds<=480)els.timerDisplay.style.background='rgba(255,190,90,.28)';else els.timerDisplay.style.background='rgba(255,255,255,.17)'}
+function startTimer(){if(timerHandle)return;timerHandle=setInterval(()=>{
+  timerSeconds=Math.max(0,timerSeconds-1);updateTimer();
+  if(timerSeconds===480)showToast('剩餘 8 分鐘：請揭露事件轉折並修正方案。');
+  if(timerSeconds===180)showToast('剩餘 3 分鐘：請整理五分鐘報告。');
+  if(timerSeconds===0){pauseTimer();showToast('討論時間到，請進入報告階段。')}
+},1000);els.timerToggle.textContent='暫停'}
+function pauseTimer(){if(timerHandle){clearInterval(timerHandle);timerHandle=null}els.timerToggle.textContent='開始計時'}
+function resetTimer(){pauseTimer();timerSeconds=1200;updateTimer()}
+function toggleTimer(){timerHandle?pauseTimer():startTimer()}
+function showToast(message){clearTimeout(toastHandle);els.toast.textContent=message;els.toast.classList.add('show');toastHandle=setTimeout(()=>els.toast.classList.remove('show'),2600)}
+function reportText(){
+  if(!activeScenario)return'';
+  const read=field=>document.querySelector(`[data-field="${field}"]`)?.value.trim()||'（尚未填寫）';
+  return `${els.group.value.trim()||'未命名小組'}｜情境 ${activeScenario.id}：${activeScenario.title}\n\n一、重要資料、資料流與前三大風險\n${read('risk')}\n\n二、前 24 小時行動\n${read('response')}\n\n三、優先三項改善與取捨\n${read('controls')}\n\n四、7／30／90 天落地計畫\n${read('roadmap')}\n\n五、五分鐘報告草稿\n${read('report')}`;
+}
+async function copyReport(){
+  const text=reportText();if(!text)return;
+  try{await navigator.clipboard.writeText(text);showToast('已複製報告草稿。')}
+  catch(e){const area=document.createElement('textarea');area.value=text;area.className='screen-reader';document.body.appendChild(area);area.select();document.execCommand('copy');area.remove();showToast('已複製報告草稿。')}
+}
+function safeFilePart(value){return (value.trim()||'未命名小組').replace(/[\\/:*?"<>|]/g,'-').slice(0,40)}
+function downloadReport(){
+  if(!activeScenario)return;
+  const blob=new Blob([reportText()],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),link=document.createElement('a');
+  link.href=url;link.download=`${safeFilePart(els.group.value)}-情境${activeScenario.id}-討論成果.txt`;
+  document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);showToast('成果檔案已建立。');
+}
+function clearWorksheet(){
+  if(!activeScenario)return;
+  const groupName=els.group.value.trim()||'未命名小組';
+  if(!window.confirm(`確定清除「${groupName}」在情境 ${activeScenario.id} 的全部紀錄嗎？此動作無法復原。`))return;
+  ['risk','response','controls','roadmap','report'].forEach(field=>safeRemove(worksheetKey(activeScenario.id,field)));
+  els.modalBody.querySelectorAll('textarea[data-field]').forEach(area=>{area.value=''});
+  const state=document.getElementById('saveState');if(state)state.textContent='紀錄已清除';showToast('此組紀錄已清除。');
+}
+
+const categories=[...new Set(scenarios.map(s=>s.category))];
+els.category.innerHTML='<option value="all">全部類型</option>'+categories.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+const pageParams=new URLSearchParams(window.location.search);
+els.group.value=pageParams.get('group')||safeLoad('dlw:group');
+els.group.addEventListener('input',()=>{safeStore('dlw:group',els.group.value);updateGroupDisplay()});
+els.keyword.addEventListener('input',renderCards);els.category.addEventListener('change',renderCards);els.difficulty.addEventListener('change',renderCards);
+document.getElementById('resetBtn').addEventListener('click',()=>{els.keyword.value='';els.category.value='all';els.difficulty.value='all';renderCards()});
+document.getElementById('randomBtn').addEventListener('click',()=>{const items=filteredScenarios();lastScenarioTrigger=null;if(items.length)openScenario(items[Math.floor(Math.random()*items.length)].id)});
+els.cards.addEventListener('click',event=>{const button=event.target.closest('[data-open-scenario]');if(button){lastScenarioTrigger=button;openScenario(Number(button.dataset.openScenario))}});
+els.modalBody.addEventListener('click',event=>{
+  if(event.target.id==='revealInject'){
+    const content=document.getElementById('injectContent');content.classList.add('revealed');event.target.setAttribute('aria-expanded','true');event.target.textContent='事件轉折已揭露';event.target.disabled=true;
+  }
+});
+els.modalBody.addEventListener('input',event=>{
+  if(!activeScenario||!event.target.matches('textarea[data-field]'))return;
+  safeStore(worksheetKey(activeScenario.id,event.target.dataset.field),event.target.value);
+  const state=document.getElementById('saveState');if(state){state.textContent='已自動保存';setTimeout(()=>{if(state)state.textContent='已保存'},700)}
+});
+document.getElementById('closeModal').addEventListener('click',closeModal);document.getElementById('closeModal2').addEventListener('click',closeModal);
+document.getElementById('timerToggle').addEventListener('click',toggleTimer);document.getElementById('timerReset').addEventListener('click',resetTimer);
+document.getElementById('copyReportBtn').addEventListener('click',copyReport);document.getElementById('downloadReportBtn').addEventListener('click',downloadReport);document.getElementById('clearWorksheetBtn').addEventListener('click',clearWorksheet);document.getElementById('printBtn').addEventListener('click',()=>window.print());
+els.modal.addEventListener('click',event=>{if(event.target===els.modal)closeModal()});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&els.modal.classList.contains('open'))closeModal()});
+renderCards();updateTimer();
+const requestedScenario=Number(pageParams.get('scenario'));
+if(scenarios.some(s=>s.id===requestedScenario))setTimeout(()=>openScenario(requestedScenario),0);
 </script>
 </body>
 </html>
