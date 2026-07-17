@@ -74,6 +74,7 @@ input,select{width:100%;min-height:44px;padding:9px 11px;border:1px solid var(--
 .objective{margin:15px 0;padding:12px 14px;border:1px solid #c5dbfb;border-radius:14px;background:var(--blue-soft);color:#284866}
 .teacher-grid,.roadmap{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:11px}
 .box{padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff}
+.guide-body>.box{margin-top:11px}
 .box.full{grid-column:1/-1}
 .box h3{margin:0 0 7px;color:var(--navy);font-size:16px}
 .box ul,.box ol{margin:5px 0 0;padding-left:1.2em}
@@ -104,7 +105,7 @@ input,select{width:100%;min-height:44px;padding:9px 11px;border:1px solid var(--
 @media(max-width:650px){
   .shell{width:min(100% - 20px,1160px)}.site-header{padding:22px 0 12px}.teacher-badge,.confidential{padding:6px 9px;font-size:12px}h1{margin:12px 0 8px;font-size:clamp(29px,9.6vw,38px)}.lead{font-size:16px}
   .briefing{gap:10px;margin:13px 0}.panel{padding:15px;border-radius:17px}.score-grid{grid-template-columns:1fr 1fr}.toolbar{padding:11px;border-radius:17px;margin:13px 0}.toolbar-grid{grid-template-columns:1fr 1fr;gap:8px}.toolbar-grid>div:first-child{grid-column:1/-1}.toolbar-grid>div:nth-child(n+4) label{display:none}.toolbar-grid>div:nth-child(6){grid-column:1/-1}.stats{flex-wrap:nowrap;overflow:auto;scrollbar-width:none}.stat{flex:none}
-  .guides{gap:10px}.guide-card{border-radius:17px}.guide-card summary{grid-template-columns:auto 1fr auto;padding:13px 12px;gap:9px}.number{width:36px;height:36px;border-radius:11px}.summary-title h2{font-size:17px}.guide-card summary::after{width:29px;height:29px}.guide-body{padding:0 11px 14px}.student-row,.copy-row{justify-content:stretch}.student-link,.copy-btn{width:100%;justify-content:center}.objective{margin:11px 0;padding:10px 11px}.teacher-grid,.roadmap{grid-template-columns:1fr;gap:9px}.box.full{grid-column:auto}.box{padding:11px 12px}.toast{left:12px;right:12px;bottom:12px;text-align:center}.footer-inner{display:grid}
+  .guides{gap:10px}.guide-card{border-radius:17px}.guide-card summary{grid-template-columns:auto 1fr auto;padding:13px 12px;gap:9px}.number{width:36px;height:36px;border-radius:11px}.summary-title h2{font-size:17px}.guide-card summary::after{width:29px;height:29px}.guide-body{padding:0 11px 14px}.student-row,.copy-row{justify-content:stretch}.student-link,.copy-btn{width:100%;justify-content:center}.objective{margin:11px 0;padding:10px 11px}.teacher-grid,.roadmap{grid-template-columns:1fr;gap:9px}.guide-body>.box{margin-top:9px}.box.full{grid-column:auto}.box{padding:11px 12px}.toast{left:12px;right:12px;bottom:12px;text-align:center}.footer-inner{display:grid}
 }
 @media(max-width:390px){.toolbar-grid{grid-template-columns:1fr}.toolbar-grid>div:first-child,.toolbar-grid>div:nth-child(6){grid-column:auto}.score-grid{grid-template-columns:1fr}.tag{font-size:11px}.guide-card summary{grid-template-columns:auto 1fr}.guide-card summary::after{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.guide-card summary{transition:none!important}}
@@ -117,13 +118,13 @@ input,select{width:100%;min-height:44px;padding:9px 11px;border:1px solid var(--
 <header class="site-header shell">
   <div class="topline"><span class="teacher-badge">教師版・講評使用</span><span class="confidential">請勿事先提供給學員</span></div>
   <h1>企業資料外洩風險<br>教師引導與範例解答</h1>
-  <p class="lead">本頁不是唯一標準答案，而是教師講評基準。請優先肯定有事實依據、能處理營運限制、能說清楚責任與驗收方式的方案。</p>
+  <p class="lead">本頁提供教師引導方向與討論示例，不代表唯一解法。請優先肯定有事實依據、能處理營運限制、能說清楚責任與驗收方式的方案。</p>
 </header>
 
 <main class="shell">
   <section class="briefing" aria-label="教師帶課說明">
     <article class="panel"><h2>建議帶課節奏</h2><ol><li>前 2 分鐘只釐清資料、流程與角色，不急著列工具。</li><li>第 7 分鐘要求小組選出前三大風險，說明排序依據。</li><li>第 12 分鐘揭露事件轉折，觀察是否願意修正原方案。</li><li>講評時先問「誰負責、多久完成、如何驗收」，再補充技術控制。</li><li>法律義務與對外通知應依事件事實、契約及主管機關要求確認，不鼓勵學員憑印象下結論。</li></ol></article>
-    <article class="panel"><h2>20 分評分基準</h2><div class="score-grid"><span>風險與事實<br><strong>4 分</strong></span><span>應變順序<br><strong>4 分</strong></span><span>低成本可行性<br><strong>4 分</strong></span><span>責任與驗收<br><strong>4 分</strong></span><span>取捨與殘餘風險<br><strong>4 分</strong></span></div><p>低分通常不是沒寫到某個工具，而是沒有排序、沒有負責人、沒有期限，或完全忽略營運限制。</p></article>
+    <article class="panel"><h2>20 分評分基準</h2><div class="score-grid"><span>風險與事實<br><strong>4 分</strong></span><span>應變順序<br><strong>4 分</strong></span><span>低成本可行性<br><strong>4 分</strong></span><span>責任與驗收<br><strong>4 分</strong></span><span>取捨與殘餘風險<br><strong>4 分</strong></span></div><p>評分重點不在是否提到特定工具，而在方案是否有排序、負責人、期限、驗收方式，並正視營運限制。</p></article>
   </section>
 
   <section class="toolbar" aria-label="教師情境篩選">
@@ -155,7 +156,7 @@ const guides=[
     week:["禁用公開連結，外部分享一律指定帳號與到期日。","建立一頁式『資料需求表』，外包先說明需要哪些欄位與用途。","對外只提供產業別、縣市等彙總資料；完整名單留在內部。"],
     month:["指定業務主管為客戶名單資料擁有者，每月檢查外部分享。","把外部分享、到期日、廠商窗口與刪除確認記在共用清冊。","用實際案例進行 15 分鐘短講，而非只發禁止公告。"],
     quarter:["當外部分享數量、敏感資料種類或稽核工時超過人工可控範圍，再評估企業版外部分享治理或 DLP。","驗收可看：公開連結數為零、逾期外部權限為零、外部資料需求表完成率。"],
-    twist:"公開 18 天且自由工作者已下載，代表範圍不只原廠商。加分答案會擴大第三方盤點、要求書面刪除確認、保留溝通證據，並重新評估客戶或契約通知需求。",
+    twist:"公開連結已存在 18 天，且至少一位自由工作者下載過資料，表示事件範圍已超出原合作廠商。教師可引導學員盤點所有可能取得資料的第三方、要求提供書面刪除確認、保存相關溝通與處理紀錄，並依事件事實、契約及適用規範，評估是否需要進行客戶或其他對外通知。",
     sample:"我們認為前三大風險是：完整客戶資料被過度分享、公開連結無法驗證使用者，以及紀錄不足導致無法確認下載範圍。前 24 小時先停用原連結、保存現有紀錄、要求廠商與兩位自由工作者回報下載與保存情形，並改提供去識別的產業統計。7 天內不買工具，先強制指定帳號、到期日與資料需求表；30 天由業務主管每月複核外部分享。若外部分享量大到每月人工檢查超過半天，才啟動企業版治理工具評估。殘餘風險是過去 11 天紀錄不可得，因此我們仍需依廠商確認與其他證據判斷影響。",
     anti:["只說『以後不要用雲端』，沒有可用替代流程。","直接買 DLP，卻沒有資料擁有者、分享期限與刪除責任。","只要求廠商口頭保證沒外洩。"],
     follow:["廠商真正需要哪些欄位？誰有權批准例外？","如何證明外部資料已刪除？","人工清冊在什麼規模下會失效？"],
@@ -200,7 +201,7 @@ const guides=[
     week:["所有客服使用個人帳號，班別開始／結束有帳號檢查。","管理員角色只給少數主管，匯出需有案件或核准紀錄。","建立無案件大量查詢的人工週報。"],
     month:["每月比對有效客服名單與帳號，離職當日停權。","抽查查詢理由與工單是否一致。","定義異常門檻，例如無案件查詢、短時間大量查詢。"],
     quarter:["改版需求包含欄位遮罩、角色細分、查詢理由、異常警示與日誌保存。","驗收可看：共用登入為零、帳號對帳差異、異常查詢調查完成率。"],
-    twist:"47 次查詢應啟動調查，但可先問是否有重複案件、測試或主管指示。好答案會同時補足證據缺口與員工公平程序。",
+    twist:"47 次查詢應啟動調查，但仍要先確認是否有重複案件、測試或主管指示。教師可引導學員同時補足證據缺口，並維持對相關人員的公平調查程序。",
     sample:"共用帳號最大的風險不是密碼本身，而是公司無法知道誰在何時為何查詢。前 24 小時先保存共用帳號日誌，結合班表、VPN 與案件紀錄縮小範圍，並立即停用共用登入。7 天內免費建立個人帳號、匯出只留給主管、每週檢查無案件大量查詢；30 天做人員與帳號對帳。六個月改版才加入遮罩與自動警示。殘餘風險是舊系統仍顯示完整欄位，因此要以個人帳號與抽查降低濫用。",
     anti:["只換共用密碼，沒有改成個人帳號。","因為有 47 次查詢就直接指控當班人員。","等待六個月改版，期間完全不做補償控制。"],
     follow:["哪些交叉紀錄可以協助調查？","客服真的需要匯出嗎？","異常查詢門檻如何避免誤報？"],
@@ -343,11 +344,11 @@ function render(){
 function card(g){return `<article class="guide-card" data-id="${g.id}"><details${g.id===1?' open':''}><summary><span class="number">${g.id}</span><div class="summary-title"><h2>${esc(g.title)}</h2><div class="meta"><span class="tag type">${esc(g.category)}</span><span class="tag ${difficultyClass(g.difficulty)}">${esc(g.difficulty)}</span></div></div></summary><div class="guide-body">
   <div class="student-row"><a class="student-link" href="index.html?scenario=${g.id}" target="_blank" rel="noopener">另開學員版此題 ↗</a></div>
   <div class="objective"><strong>教學目標：</strong>${esc(g.objective)}</div>
-  <div class="teacher-grid"><section class="box signals"><h3>教師應觀察的核心訊號</h3>${list(g.signals)}</section><section class="box minimum"><h3>最低可接受答案</h3>${list(g.minimum)}</section></div>
+  <div class="teacher-grid"><section class="box signals"><h3>教師應觀察的核心訊號</h3>${list(g.signals)}</section><section class="box minimum"><h3>討論至少應涵蓋</h3>${list(g.minimum)}</section></div>
   <div class="roadmap"><section class="box response"><h3>前 24 小時建議方向</h3>${list(g.response)}</section><section class="box week"><h3>7 天｜不新增採購</h3>${list(g.week)}</section><section class="box month"><h3>30 天｜流程制度化</h3>${list(g.month)}</section><section class="box quarter"><h3>90 天｜投資條件與驗收</h3>${list(g.quarter)}</section></div>
   <section class="box twist full"><h3>事件轉折講評</h3><p>${esc(g.twist)}</p></section>
   <section class="box sample full"><h3>五分鐘報告範例</h3><p>${esc(g.sample)}</p><div class="copy-row"><button class="copy-btn" data-copy="${g.id}">複製此題範例</button></div></section>
-  <div class="teacher-grid"><section class="box anti"><h3>常見但不夠好的答案</h3>${list(g.anti)}</section><section class="box follow"><h3>教師追問句</h3>${list(g.follow)}</section><section class="box residual full"><h3>可接受的殘餘風險</h3>${list(g.residual)}</section></div>
+  <div class="teacher-grid"><section class="box anti"><h3>常見但仍需補強的回應</h3>${list(g.anti)}</section><section class="box follow"><h3>教師追問句</h3>${list(g.follow)}</section><section class="box residual full"><h3>可接受的殘餘風險</h3>${list(g.residual)}</section></div>
   </div></details></article>`}
 function showToast(message){clearTimeout(toastHandle);els.toast.textContent=message;els.toast.classList.add('show');toastHandle=setTimeout(()=>els.toast.classList.remove('show'),2200)}
 async function copySample(id){const g=guides.find(item=>item.id===id);if(!g)return;const text=`${g.id}. ${g.title}\n\n五分鐘報告範例\n${g.sample}`;try{await navigator.clipboard.writeText(text)}catch(e){const area=document.createElement('textarea');area.value=text;document.body.appendChild(area);area.select();document.execCommand('copy');area.remove()}showToast('已複製範例解答。')}
