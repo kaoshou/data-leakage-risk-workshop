@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="企業資料外洩風險分組工作坊教師講評與範例解答。">
+<title>教師版｜企業資料外洩風險分組工作坊</title>
+<style>
+:root{
+  --navy:#10233f;--ink:#18253a;--muted:#65738a;--bg:#f4f6fa;--surface:#fff;
+  --line:#d7e0ec;--blue:#1f63d8;--blue-soft:#edf5ff;--teal:#087d73;--teal-soft:#e9f8f5;
+  --amber:#9b510d;--amber-soft:#fff7e8;--red:#a82836;--red-soft:#fff0f2;
+  --green:#267245;--green-soft:#edf9f1;--violet:#673db3;--violet-soft:#f4efff;
+  --shadow:0 16px 42px rgba(16,35,63,.10);--soft:0 7px 22px rgba(16,35,63,.07);
+  --radius:20px;--radius-sm:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;min-height:100vh;color:var(--ink);line-height:1.68;background:
+  radial-gradient(circle at 6% 0,rgba(168,40,54,.10),transparent 28rem),
+  radial-gradient(circle at 92% 3%,rgba(31,99,216,.12),transparent 30rem),
+  linear-gradient(180deg,#f3f0f5 0,var(--bg) 440px);
+  font-family:"Microsoft JhengHei","Noto Sans TC",system-ui,-apple-system,"Segoe UI",sans-serif;
+  text-rendering:optimizeLegibility;
+}
+button,input,select{font:inherit}
+button{cursor:pointer;touch-action:manipulation}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid rgba(31,99,216,.25);outline-offset:3px}
+.shell{width:min(1160px,calc(100% - 40px));margin:0 auto}
+.site-header{padding:38px 0 18px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.teacher-badge,.confidential,.tag,.stat{display:inline-flex;align-items:center;border-radius:999px;font-weight:900}
+.teacher-badge{padding:7px 13px;background:#ffe0e4;border:1px solid #f3b7bf;color:#902331}
+.confidential{padding:7px 13px;background:#fff4d8;border:1px solid #e8cc83;color:#78500c}
+h1{margin:16px 0 10px;max-width:900px;color:var(--navy);font-size:clamp(33px,5vw,56px);line-height:1.1;text-wrap:balance}
+.lead{max-width:980px;margin:0;color:#435168;font-size:18px}
+.briefing{display:grid;grid-template-columns:1.15fr .85fr;gap:15px;margin:18px 0}
+.panel,.toolbar,.guide-card{border:1px solid var(--line);background:rgba(255,255,255,.96);box-shadow:var(--soft)}
+.panel{padding:18px;border-radius:var(--radius)}
+.panel h2{margin:0 0 8px;color:var(--navy);font-size:20px}
+.panel ul,.panel ol{margin:7px 0 0;padding-left:1.25em}
+.panel li{margin:5px 0}
+.score-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:9px}
+.score-grid span{padding:8px 6px;border-radius:10px;border:1px solid var(--line);background:#f8fafc;text-align:center;font-size:12px}
+.toolbar{position:sticky;top:8px;z-index:20;margin:18px 0;padding:14px;border-radius:var(--radius);backdrop-filter:blur(14px)}
+.toolbar-grid{display:grid;grid-template-columns:1.35fr .8fr .7fr auto auto auto;gap:9px;align-items:end}
+label{display:block;margin:0 0 5px;color:#3e4d63;font-size:13px;font-weight:900}
+input,select{width:100%;min-height:44px;padding:9px 11px;border:1px solid var(--line);border-radius:12px;background:#fbfdff;color:var(--ink);font-size:16px}
+.btn{min-height:44px;padding:9px 13px;border:0;border-radius:12px;background:linear-gradient(135deg,var(--blue),#3979de);color:#fff;font-weight:900;white-space:nowrap;box-shadow:0 6px 15px rgba(31,99,216,.17)}
+.btn.secondary{background:#eef3fc;color:#244f93;border:1px solid #cbd9ef;box-shadow:none}
+.btn.ghost{background:#fff;color:#244f93;border:1px solid #bfd0ea;box-shadow:none}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:13px}
+.stat{padding:4px 9px;border:1px solid var(--line);background:#f8fafc}
+.guides{display:grid;gap:14px;margin-bottom:30px}
+.guide-card{overflow:hidden;border-radius:var(--radius)}
+.guide-card[hidden]{display:none}
+.guide-card details{background:#fff}
+.guide-card summary{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:17px 19px;cursor:pointer;list-style:none;background:linear-gradient(145deg,#fff,#f8fbff)}
+.guide-card summary::-webkit-details-marker{display:none}
+.guide-card summary::after{content:"＋";display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:#e9f1ff;color:#235cb9;font-size:20px;font-weight:800}
+.guide-card details[open] summary::after{content:"−"}
+.number{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--navy),#29486f);color:#fff;font-weight:950}
+.summary-title{min-width:0}
+.summary-title h2{margin:0;color:var(--navy);font-size:20px;line-height:1.35}
+.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tag{padding:3px 8px;border:1px solid transparent;font-size:12px}
+.tag.type{color:#0b5c91;background:#e5f4ff;border-color:#c0e2f8}
+.tag.easy{color:var(--green);background:var(--green-soft);border-color:#bfe3ca}
+.tag.medium{color:var(--amber);background:var(--amber-soft);border-color:#edd19c}
+.tag.hard{color:var(--red);background:var(--red-soft);border-color:#edbdc3}
+.guide-body{padding:0 19px 20px;border-top:1px solid var(--line);background:#fafbfd}
+.objective{margin:15px 0;padding:12px 14px;border:1px solid #c5dbfb;border-radius:14px;background:var(--blue-soft);color:#284866}
+.teacher-grid,.roadmap{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:11px}
+.box{padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff}
+.box.full{grid-column:1/-1}
+.box h3{margin:0 0 7px;color:var(--navy);font-size:16px}
+.box ul,.box ol{margin:5px 0 0;padding-left:1.2em}
+.box li{margin:5px 0}
+.signals{background:#eff7ff;border-color:#c5dcf8}
+.minimum{background:#eefaf2;border-color:#bee4ca}
+.response{background:#fff4f2;border-color:#ecc7c2}
+.week{background:#f1fbf8;border-color:#c4e5dc}
+.month{background:#fff8e9;border-color:#ecd4a6}
+.quarter{background:#f5f0ff;border-color:#d9caf3}
+.twist{background:#fff7e8;border-color:#e9cd97}
+.sample{background:#f1f5fb;border:2px solid #c4d3e7}
+.sample p{margin:0;white-space:pre-line;color:#34445b}
+.anti{background:#fff1f3;border-color:#efc4ca}
+.follow{background:#f3efff;border-color:#dacbf1}
+.residual{background:#f5f7fa}
+.copy-row{display:flex;justify-content:flex-end;margin-top:10px}
+.copy-btn{min-height:40px;padding:7px 11px;border:1px solid #b9cce9;border-radius:10px;background:#fff;color:#25569d;font-weight:900}
+.student-row{display:flex;justify-content:flex-end;margin:12px 0 0}
+.student-link{display:inline-flex;align-items:center;min-height:40px;padding:7px 11px;border:1px solid #bfd0ea;border-radius:10px;background:#fff;color:#25569d;font-weight:900;text-decoration:none}
+.empty{padding:28px;text-align:center;border:1px dashed #bcc9db;border-radius:18px;background:#fff}
+.toast{position:fixed;right:18px;bottom:18px;z-index:100;display:none;padding:10px 14px;border-radius:12px;background:var(--navy);color:#fff;box-shadow:var(--shadow);font-weight:900}
+.toast.show{display:block}
+.site-footer{padding:5px 0 30px;color:var(--muted)}
+.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line);font-size:13px}
+@media(hover:hover){.guide-card summary:hover{background:linear-gradient(145deg,#fff,#f1f7ff)}.btn:hover{filter:brightness(.96);transform:translateY(-1px)}}
+@media(max-width:900px){.briefing{grid-template-columns:1fr}.toolbar{position:static}.toolbar-grid{grid-template-columns:1fr 1fr}.toolbar-grid>div:first-child{grid-column:1/-1}.score-grid{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:650px){
+  .shell{width:min(100% - 20px,1160px)}.site-header{padding:22px 0 12px}.teacher-badge,.confidential{padding:6px 9px;font-size:12px}h1{margin:12px 0 8px;font-size:clamp(29px,9.6vw,38px)}.lead{font-size:16px}
+  .briefing{gap:10px;margin:13px 0}.panel{padding:15px;border-radius:17px}.score-grid{grid-template-columns:1fr 1fr}.toolbar{padding:11px;border-radius:17px;margin:13px 0}.toolbar-grid{grid-template-columns:1fr 1fr;gap:8px}.toolbar-grid>div:first-child{grid-column:1/-1}.toolbar-grid>div:nth-child(n+4) label{display:none}.toolbar-grid>div:nth-child(6){grid-column:1/-1}.stats{flex-wrap:nowrap;overflow:auto;scrollbar-width:none}.stat{flex:none}
+  .guides{gap:10px}.guide-card{border-radius:17px}.guide-card summary{grid-template-columns:auto 1fr auto;padding:13px 12px;gap:9px}.number{width:36px;height:36px;border-radius:11px}.summary-title h2{font-size:17px}.guide-card summary::after{width:29px;height:29px}.guide-body{padding:0 11px 14px}.student-row,.copy-row{justify-content:stretch}.student-link,.copy-btn{width:100%;justify-content:center}.objective{margin:11px 0;padding:10px 11px}.teacher-grid,.roadmap{grid-template-columns:1fr;gap:9px}.box.full{grid-column:auto}.box{padding:11px 12px}.toast{left:12px;right:12px;bottom:12px;text-align:center}.footer-inner{display:grid}
+}
+@media(max-width:390px){.toolbar-grid{grid-template-columns:1fr}.toolbar-grid>div:first-child,.toolbar-grid>div:nth-child(6){grid-column:auto}.score-grid{grid-template-columns:1fr}.tag{font-size:11px}.guide-card summary{grid-template-columns:auto 1fr}.guide-card summary::after{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.guide-card summary{transition:none!important}}
+@media print{
+  body{background:#fff;font-size:11pt}.site-header{padding:0}.topline,.briefing,.toolbar,.toast,.student-row,.copy-row,.site-footer{display:none!important}h1{font-size:23pt}.lead{font-size:11pt}.guides{display:block}.guide-card{margin:0 0 10mm;border:1px solid #888;box-shadow:none;break-inside:avoid}.guide-card[hidden]{display:block}.guide-card summary{padding:8px;background:#fff}.guide-card summary::after{display:none}.guide-body{display:block!important;padding:0 10px 10px;background:#fff}.guide-card details:not([open])>.guide-body{display:block!important}.box,.objective{break-inside:avoid;box-shadow:none}.teacher-grid,.roadmap{gap:7px}.btn{display:none}
+}
+</style>
+</head>
+<body>
+<header class="site-header shell">
+  <div class="topline"><span class="teacher-badge">教師版・講評使用</span><span class="confidential">請勿事先提供給學員</span></div>
+  <h1>企業資料外洩風險<br>教師引導與範例解答</h1>
+  <p class="lead">本頁不是唯一標準答案，而是教師講評基準。請優先肯定有事實依據、能處理營運限制、能說清楚責任與驗收方式的方案。</p>
+</header>
+
+<main class="shell">
+  <section class="briefing" aria-label="教師帶課說明">
+    <article class="panel"><h2>建議帶課節奏</h2><ol><li>前 2 分鐘只釐清資料、流程與角色，不急著列工具。</li><li>第 7 分鐘要求小組選出前三大風險，說明排序依據。</li><li>第 12 分鐘揭露事件轉折，觀察是否願意修正原方案。</li><li>講評時先問「誰負責、多久完成、如何驗收」，再補充技術控制。</li><li>法律義務與對外通知應依事件事實、契約及主管機關要求確認，不鼓勵學員憑印象下結論。</li></ol></article>
+    <article class="panel"><h2>20 分評分基準</h2><div class="score-grid"><span>風險與事實<br><strong>4 分</strong></span><span>應變順序<br><strong>4 分</strong></span><span>低成本可行性<br><strong>4 分</strong></span><span>責任與驗收<br><strong>4 分</strong></span><span>取捨與殘餘風險<br><strong>4 分</strong></span></div><p>低分通常不是沒寫到某個工具，而是沒有排序、沒有負責人、沒有期限，或完全忽略營運限制。</p></article>
+  </section>
+
+  <section class="toolbar" aria-label="教師情境篩選">
+    <div class="toolbar-grid">
+      <div><label for="keyword">搜尋題目或講評重點</label><input id="keyword" type="search" placeholder="例如：離職、權限、通報、MFA"></div>
+      <div><label for="category">風險類型</label><select id="category"><option value="all">全部類型</option></select></div>
+      <div><label for="difficulty">難度</label><select id="difficulty"><option value="all">全部難度</option><option>入門</option><option>中階</option><option>進階</option></select></div>
+      <div><label>&nbsp;</label><button class="btn secondary" id="expandBtn">展開全部</button></div>
+      <div><label>&nbsp;</label><button class="btn ghost" id="collapseBtn">收合全部</button></div>
+      <div><label>&nbsp;</label><button class="btn" id="printBtn">列印教師講義</button></div>
+    </div>
+    <div class="stats"><span class="stat" id="countText">目前顯示 0 題</span><span class="stat">每題皆含專屬範例</span><span class="stat">範例解答可複製</span></div>
+  </section>
+
+  <section class="guides" id="guides" aria-live="polite"></section>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer class="site-footer shell"><div class="footer-inner"><strong>教師版｜崑山科技大學 鄭郁翰老師</strong><span>資料外洩安全防護・分組討論工作坊</span></div></footer>
+
+<script>
+const guides=[
+  {
+    id:1,title:"業務雲端連結被轉傳，客戶名單對外開放",category:"雲端分享",difficulty:"入門",
+    objective:"讓學員理解外部合作不等於必須分享完整資料，並能先用既有雲端功能降低風險。",
+    signals:["設計廠商只需要彙總統計，卻取得完整客戶資料，違反資料最小化。","『知道連結即可查看』使公司失去身分驗證、期限與再轉傳控制。","下載紀錄只有 7 天，表示事件調查與可歸責性不足。","問題不是單一業務，而是缺乏外部分享規則、資料擁有者與定期複核。"],
+    minimum:["能排出關閉／撤銷連結、保存現有紀錄、聯絡廠商與確認下載範圍的順序。","7 天方案使用指定帳號、期限連結、去除不必要欄位與外部分享清冊。","能說明何時才需要投資 DLP，例如外部分享量大到人工複核無法維持。"],
+    response:["立即停用公開連結，另建乾淨的彙總資料，不直接破壞可能需要的證據。","匯出仍可取得的分享、登入與下載紀錄，記錄連結建立與發現時間。","請設計廠商列出轉寄對象、下載者與保存位置，取得刪除或返還確認。","由資料擁有者、管理代表與事件窗口判斷影響範圍及必要溝通。"],
+    week:["禁用公開連結，外部分享一律指定帳號與到期日。","建立一頁式『資料需求表』，外包先說明需要哪些欄位與用途。","對外只提供產業別、縣市等彙總資料；完整名單留在內部。"],
+    month:["指定業務主管為客戶名單資料擁有者，每月檢查外部分享。","把外部分享、到期日、廠商窗口與刪除確認記在共用清冊。","用實際案例進行 15 分鐘短講，而非只發禁止公告。"],
+    quarter:["當外部分享數量、敏感資料種類或稽核工時超過人工可控範圍，再評估企業版外部分享治理或 DLP。","驗收可看：公開連結數為零、逾期外部權限為零、外部資料需求表完成率。"],
+    twist:"公開 18 天且自由工作者已下載，代表範圍不只原廠商。加分答案會擴大第三方盤點、要求書面刪除確認、保留溝通證據，並重新評估客戶或契約通知需求。",
+    sample:"我們認為前三大風險是：完整客戶資料被過度分享、公開連結無法驗證使用者，以及紀錄不足導致無法確認下載範圍。前 24 小時先停用原連結、保存現有紀錄、要求廠商與兩位自由工作者回報下載與保存情形，並改提供去識別的產業統計。7 天內不買工具，先強制指定帳號、到期日與資料需求表；30 天由業務主管每月複核外部分享。若外部分享量大到每月人工檢查超過半天，才啟動企業版治理工具評估。殘餘風險是過去 11 天紀錄不可得，因此我們仍需依廠商確認與其他證據判斷影響。",
+    anti:["只說『以後不要用雲端』，沒有可用替代流程。","直接買 DLP，卻沒有資料擁有者、分享期限與刪除責任。","只要求廠商口頭保證沒外洩。"],
+    follow:["廠商真正需要哪些欄位？誰有權批准例外？","如何證明外部資料已刪除？","人工清冊在什麼規模下會失效？"],
+    residual:["舊紀錄已超過保存期限，無法完全證明誰曾存取。","合法取得檔案的外部人員仍可能另存副本。"]
+  },
+  {
+    id:2,title:"行政誤寄報價單，把 A 客戶資料寄給 B 客戶",category:"人員操作",difficulty:"入門",
+    objective:"把誤寄從個人疏失轉化為工作量、交辦方式、技術提示與通報文化的系統問題。",
+    signals:["急件、下班前集中處理與自動完成共同提高誤寄機率。","內部折扣與交易條件同時造成商業機密及客戶關係風險。","員工害怕被責備會延誤通報，擴大事件影響。","所有信件都主管覆核會拖慢流程，應依資料敏感度分級。"],
+    minimum:["能說明發現後先通報、保存郵件、聯絡誤收者與確認開啟／刪除狀態。","提出延遲寄送、外部收件提示、附件命名與高風險附件覆核等既有功能。","不把所有責任推給行政，也不要求每封郵件都雙人審核。"],
+    response:["立即向主管或事件窗口通報，不先自行刪信或隱瞞。","保存原郵件、附件版本、寄送與發現時間，確認誤寄範圍。","由授權窗口聯絡 B 客戶，說明誤寄、請勿使用並請求刪除與回覆確認。","通知 A 客戶前先確認事實、契約與溝通口徑。"],
+    week:["啟用 1–2 分鐘延遲寄送及外部收件人提示。","高敏感附件改用可撤銷的雲端連結。","制式交辦單明列客戶、附件版本、敏感程度與寄出期限。"],
+    month:["只對含內部折扣、合約或大量個資的郵件設定第二人覆核。","建立無責通報窗口與 60 分鐘處置清單。","每月整理近失事件，改善自動完成與常見錯誤。"],
+    quarter:["若外寄量與事故頻率使人工分級無法維持，再評估郵件 DLP 或外寄防呆。","驗收可看：發現至通報時間、誤寄件數、可撤銷連結使用率。"],
+    twist:"B 客戶已看到折扣差異，事件同時成為客戶關係問題。不能只要求刪檔；應由業務主管準備一致說法，處理價格疑問並避免行政人員單獨承擔對外溝通。",
+    sample:"本案不是行政個人粗心，而是急件文化、自動完成、附件交辦不清與害怕通報共同造成。前 60 分鐘要保存郵件證據、通報主管、由授權窗口聯絡 B 客戶並取得刪除確認，同時準備 A、B 客戶的溝通口徑。7 天內啟用延遲寄送與外部收件提示，高敏感附件改用可撤銷連結；30 天只針對折扣、合約與大量個資做分級覆核。若每月高風險外寄量超過人工可負荷範圍，才評估 DLP。殘餘風險是 B 客戶已讀取價格資訊，技術措施無法消除商業關係影響。",
+    anti:["只要求行政更小心或記過。","把『郵件收回』當作一定成功。","所有郵件都主管審核，忽略效率與規避風險。"],
+    follow:["哪一類附件才需要第二人覆核？","誰應聯絡誤收客戶？行政本人適合嗎？","如何鼓勵員工在 5 分鐘內通報？"],
+    residual:["收件者可能已截圖或轉寄，刪除確認無法百分之百證明未留存。","延遲寄送降低風險但不能取代資料分級。"]
+  },
+  {
+    id:3,title:"離職業務帳號未停用，兩週後匯出客戶資料",category:"離職交接",difficulty:"進階",
+    objective:"讓學員設計不用 SSO 也能執行的到職、調職、離職流程與跨部門責任。",
+    signals:["正式離職後不應為交接保留本人帳號；交接應在生效前完成或轉交新承辦人。","1,850 筆匯出遠高於每日 20 筆基準，需視為異常事件調查。","人資有生效時間、資訊有系統能力、主管知道業務需要，缺的是共同流程。","各部門自行採購 SaaS，使帳號清冊與資料擁有者不完整。"],
+    minimum:["立即停用所有已知帳號、撤銷工作階段、保存日誌並盤點設備與資料。","能提出人資啟動、主管確認、資訊執行、主管或稽核驗證的 RACI。","7 天先用試算表清冊與離職檢查表，不把 SSO 當作唯一解。"],
+    response:["緊急停用 CRM、Email、雲端與其他已知帳號，撤銷登入工作階段。","保存匯出、登入、分享與郵件紀錄，確認時間、IP、資料範圍與後續利用。","盤點公司設備、私人裝置同步、群組及外部平台權限。","由管理、法務與資料擁有者評估後續聯絡、契約與通知要求。"],
+    week:["人資以生效日／時間啟動單一離職表單。","主管於離職日前完成客戶與檔案交接，禁止離職後保留本人帳號。","資訊依清冊停權，主管再確認資料與群組已轉移。"],
+    month:["建立 SaaS、帳號擁有者、管理者與停權方式清冊。","涵蓋到職、調職、長假與離職，而不只離職。","每月比對人事名單與主要系統有效帳號。"],
+    quarter:["當異動量或系統數讓人工清冊頻繁漏失，再投資 SSO／自動生命週期管理。","驗收可看：生效後有效帳號為零、停權準時率、每月比對差異數。"],
+    twist:"登入 IP 與前員工住處相同且本人主張『自己的客戶』，不能直接認定惡意或無事。應保留證據、確認授權與契約、避免自行遠端刪除個人設備，並由適當窗口處理。",
+    sample:"核心問題是公司把人事生效與系統停權分開處理。前 24 小時先停用所有已知帳號、撤銷工作階段、保存 CRM 匯出與登入紀錄，確認 1,850 筆資料內容及是否再利用。7 天內由人資以離職時間啟動表單，主管在離職前完成交接，資訊執行停權，主管驗證；30 天建立 SaaS 清冊並每月對帳。當系統數或每月異動量造成清冊持續漏失，才評估 SSO。前員工的說法不改變客戶資料的授權要求，但公司仍應依法與依契約調查，不先公開指控。",
+    anti:["離職後繼續開放本人帳號方便交接。","只關 CRM，忽略郵件、雲端、群組與第三方 SaaS。","沒有證據就公開認定前員工竊取資料。"],
+    follow:["離職日 18:00 由誰觸發停權？誰驗證？","主管臨時要求延後停權，例外要如何核准與到期？","如何發現未列在清冊的 SaaS？"],
+    residual:["人工清冊仍依賴部門如實申報新系統。","離職前合法存取期間的異常下載仍需監控與管理。"]
+  },
+  {
+    id:4,title:"客服共用後台帳號，會員查詢紀錄無法追人",category:"帳號權限",difficulty:"中階",
+    objective:"在不立即改版的情況下，用個人帳號、排班與交叉紀錄先恢復可歸責性。",
+    signals:["共用帳號讓教育、停權、最小權限、稽核與調查全部失效。","系統已能免費建立個人帳號，因此『舊系統』不是繼續共用的充分理由。","47 次無案件查詢是異常訊號，但不等於可直接指控某人。","遮罩做不到時，可先以個人身分、匯出分權與查詢理由做補償控制。"],
+    minimum:["立即保存日誌，停止共用帳號並建立個人帳號。","能利用班表、座位、VPN 與案件紀錄縮小調查範圍。","提出舊系統改版前可做的補償控制與六個月驗收條件。"],
+    response:["保存共用帳號查詢日誌、班表、VPN、案件與座位紀錄。","立即變更共用密碼並停止日常使用，改發個人帳號。","限制匯出為主管角色，檢查離職與休假人員帳號。","以事實調查 47 次查詢的時間與業務理由，不先公開歸責。"],
+    week:["所有客服使用個人帳號，班別開始／結束有帳號檢查。","管理員角色只給少數主管，匯出需有案件或核准紀錄。","建立無案件大量查詢的人工週報。"],
+    month:["每月比對有效客服名單與帳號，離職當日停權。","抽查查詢理由與工單是否一致。","定義異常門檻，例如無案件查詢、短時間大量查詢。"],
+    quarter:["改版需求包含欄位遮罩、角色細分、查詢理由、異常警示與日誌保存。","驗收可看：共用登入為零、帳號對帳差異、異常查詢調查完成率。"],
+    twist:"47 次查詢應啟動調查，但可先問是否有重複案件、測試或主管指示。好答案會同時補足證據缺口與員工公平程序。",
+    sample:"共用帳號最大的風險不是密碼本身，而是公司無法知道誰在何時為何查詢。前 24 小時先保存共用帳號日誌，結合班表、VPN 與案件紀錄縮小範圍，並立即停用共用登入。7 天內免費建立個人帳號、匯出只留給主管、每週檢查無案件大量查詢；30 天做人員與帳號對帳。六個月改版才加入遮罩與自動警示。殘餘風險是舊系統仍顯示完整欄位，因此要以個人帳號與抽查降低濫用。",
+    anti:["只換共用密碼，沒有改成個人帳號。","因為有 47 次查詢就直接指控當班人員。","等待六個月改版，期間完全不做補償控制。"],
+    follow:["哪些交叉紀錄可以協助調查？","客服真的需要匯出嗎？","異常查詢門檻如何避免誤報？"],
+    residual:["個人帳號可追人，但不能自動判斷查詢目的是否正當。","無遮罩期間仍有過度揭露風險。"]
+  },
+  {
+    id:5,title:"承辦人用私人 LINE 傳送講師合約與身分證",category:"私人帳號",difficulty:"中階",
+    objective:"讓學員提出主管也願意遵守的替代流程，而不是只有禁止私人通訊工具。",
+    signals:["主管只需確認合約與費用，身分證影本不應一起分享。","私人手機、LINE 桌面版與自動下載形成多個公司無法控管的副本。","老闆也用 LINE 下指令，表示文化與替代流程比單純公告重要。","LINE 可以保留通知功能，敏感內容改放指定帳號與限時連結。"],
+    minimum:["能處理遺失手機、LINE 工作階段、桌面版附件與帳號風險。","區分可在 LINE 傳的通知與不可傳的敏感附件。","提出 15 分鐘急件仍能運作的安全連結流程。"],
+    response:["變更相關帳號密碼、撤銷登入工作階段，嘗試裝置定位／遠端鎖定。","檢查 LINE 桌面版、私人電腦下載資料夾、雲端備份與其他同步裝置。","盤點合約與身分證曾傳給哪些對象，保存活動與溝通紀錄。","由事件窗口依資料與存取可能性評估後續通知。"],
+    week:["LINE 只傳通知與安全連結，不傳身分證、銀行資料或完整名單。","主管審合約時只提供必要欄位，身分證由財務必要窗口保管。","急件範本：身分驗證、指定帳號、到期日與完成回覆。"],
+    month:["建立私人裝置最低要求：螢幕鎖、App 鎖、系統更新、遺失通報。","清理 LINE 桌面版自動下載及離職／換機工作階段。","主管公開示範新流程並處理例外。"],
+    quarter:["當敏感文件量、外部講師數或遺失事件使安全連結難維護，再評估企業通訊或 MDM。","驗收可看：敏感附件經 LINE 傳送為零、遺失至通報時間、限時連結使用率。"],
+    twist:"遺失後曾短暫連線且密碼可能是生日，事件風險升高。應擴大帳號與同步裝置檢查，不再把螢幕鎖視為充分保護。",
+    sample:"本案最重要的不是全面禁止 LINE，而是身分證根本不需要提供主管。前 24 小時先撤銷相關帳號工作階段、檢查 LINE 桌面版與附件下載、盤點接收者並保留紀錄。7 天內 LINE 只用來通知，文件改放指定帳號與到期連結，主管只看合約必要欄位；30 天訂出私人裝置最低要求與換機、遺失流程。若敏感文件量大到安全連結與人工清冊無法維護，再投資企業平台。",
+    anti:["只公告禁止 LINE，卻要求員工 15 分鐘內回覆。","假設有六位數螢幕鎖就沒有風險。","要求公司全面管理私人手機，卻沒有法規、同意與支援能力。"],
+    follow:["主管真正需要看到身分證哪個欄位？","急件時的替代流程要幾步？","私人裝置的最低要求與公司責任界線在哪裡？"],
+    residual:["私人裝置與個人帳號仍有公司看不到的備份與副本。","安全連結降低附件散落，但收件者仍可能另存。"]
+  },
+  {
+    id:6,title:"主管出差遺失未加密筆電，內有薪資資料",category:"可攜式設備",difficulty:"中階",
+    objective:"讓學員同時處理裝置遺失、雲端帳號風險、磁碟加密與本機資料最小化。",
+    signals:["登入密碼不等於磁碟加密，硬碟可能被拆下讀取。","MFA 阻擋一次登入不代表瀏覽器既有工作階段安全。","只加密不解決薪資檔長期留在桌面的問題。","一個月只能處理 30 台，應依資料敏感度與移動頻率排序。"],
+    minimum:["能列出帳號工作階段撤銷、裝置／資料盤點、日誌與事件溝通。","優先加密高風險主管、財務、人資與經常外出設備。","提出復原金鑰、驗收與例外，不只要求開 BitLocker。"],
+    response:["通報遺失時間、地點與裝置資訊，確認是否報警或聯絡運輸業者。","撤銷雲端與重要系統工作階段，檢查異常登入與下載紀錄。","列出本機薪資、考核與其他檔案的版本、範圍及是否另有備份。","保存警示、登入與處置紀錄，由人資與管理代表評估影響。"],
+    week:["先完成 30 台高風險設備加密，集中保存復原金鑰。","限制薪資檔下載與保存位置，使用後清理暫存。","建立裝置清冊與遺失通報卡。"],
+    month:["依角色與移動風險排定其餘設備批次。","抽查加密狀態、復原金鑰與本機敏感檔案。","設計離線需求的核准、加密暫存與到期清理。"],
+    quarter:["當設備數、廠區數與遺失事件讓人工盤點無法持續，再評估 MDM／端點管理。","驗收可看：高風險設備加密率、復原演練、遺失至撤銷工作階段時間。"],
+    twist:"陌生地點嘗試登入但 MFA 未通過，表示可能有人操作裝置或掌握密碼。應擴大密碼重複使用、瀏覽器工作階段與其他服務調查。",
+    sample:"前 24 小時先撤銷雲端工作階段、檢查異常登入與下載、盤點本機 126 人資料並保存證據。MFA 擋下一次登入很好，但不能證明既有工作階段或硬碟安全。7 天內先加密人資、財務與常外出的 30 台，集中復原金鑰，薪資檔改為加密暫存且使用後清理；30 天完成裝置清冊與抽查。當多廠區人工盤點持續漏失，再評估 MDM。",
+    anti:["只改雲端密碼，忽略既有工作階段與本機硬碟。","全面加密但沒有復原金鑰流程。","聲稱現代磁碟加密一定會讓電腦明顯變慢。"],
+    follow:["首批 30 台如何排序？","如何驗證真的完成加密？","離線需求可以保留多久、由誰核准？"],
+    residual:["未加密筆電的既有資料無法靠事後啟用加密補救。","加密保護靜態資料，不防止合法登入後的濫用。"]
+  },
+  {
+    id:7,title:"外包專案結束後，真實會員資料與帳號仍留存",category:"外部合作",difficulty:"進階",
+    objective:"讓學員把供應商資安控制嵌入需求、測試、維護與結案，而非只簽保密條款。",
+    signals:["真實會員資料不是完成測試的必要條件，兩天建立假資料是可接受取捨。","保固需求不代表必須保留真實資料與無期限帳號。","再委外使資料流與責任超出原契約範圍。","中小企業可以先用一頁式最低要求與結案清單，不必先建完整供應商平台。"],
+    minimum:["立即停權、保存紀錄、確認真實資料與次處理者範圍、取得刪除證據。","下一案能提出假資料、帳號到期、再委外核准、事件通知與結案要求。","能說明如何在最多增加兩天時程下落地。"],
+    response:["先保存帳號、環境與資料庫紀錄，再停用不必要帳號。","要求原廠商與協力公司列出存取人員、資料副本、備份及傳輸。","取得刪除／返還證明，確認保固真正需要保留的程式與設定。","由採購、法務、資訊與資料擁有者評估契約與後續通知。"],
+    week:["所有廠商帳號設定專案結束或短期維護到期日。","測試改用假資料或最小欄位抽樣。","用一頁式結案表確認帳號、資料、備份、金鑰與存取。"],
+    month:["契約附件加入再委外核准、用途限制、刪除證明與事件通知。","建立廠商／協力公司／資料／環境清冊。","專案啟動會議指定內部資料擁有者。"],
+    quarter:["當廠商與專案數使試算表漏失，再評估供應商治理或資料遮罩工具。","驗收可看：逾期帳號、真實資料測試例外、結案確認完成率。"],
+    twist:"未揭露協力公司表示原廠商管理也需納入範圍。不能只要求協力公司刪除；應追查原廠商的選任、監督、傳輸與事件通知責任。",
+    sample:"風險不是廠商有惡意，而是真實資料、過大權限、沒有到期日與未揭露再委外同時存在。前 24 小時保存紀錄後停權，要求兩層廠商列出所有副本、備份與存取者，取得刪除證明。下個專案以兩天建立假資料換取不使用 8,000 筆真實會員資料，帳號預設到期，結案表確認資料與金鑰。30 天把再委外核准、通知時限與刪除證明加入契約附件。",
+    anti:["因為廠商沒有惡意就不處理。","只簽 NDA，沒有帳號、資料與結案控制。","要求測試完全不能像正式環境，卻不提供可用假資料。"],
+    follow:["保固真正需要保留什麼？","假資料兩天成本與 8,000 筆真實資料風險如何比較？","如何驗證協力公司也完成刪除？"],
+    residual:["刪除證明仍依賴供應商可信度與稽核能力。","假資料可能無法涵蓋少數真實資料品質問題，需設計受控例外。"]
+  },
+  {
+    id:8,title:"主管點擊釣魚信，雲端帳號下載大量資料",category:"社交工程",difficulty:"進階",
+    objective:"讓學員完整走過帳號接管的限制影響、調查、溝通與復原，而不是只回答改密碼加 MFA。",
+    signals:["發現晚 14 小時，需先界定攻擊者工作階段與活動時間線。","改密碼可能不會撤銷所有工作階段、應用權杖或郵件規則。","90 天日誌是重要現有資源，應先保存再調查。","唯一資訊人員無法 24 小時監控，需分級通知與電話通報樹。"],
+    minimum:["包含停權／撤銷工作階段、改密碼、郵件規則、日誌、設備與資料範圍。","能區分已知、未知、推測，通知前先確認事實。","先對高風險帳號啟用 MFA 與警示，不等待全面採購。"],
+    response:["暫停帳號或撤銷所有工作階段、重設密碼並檢查密碼重複使用。","保存登入、下載、分享、郵件規則、OAuth 應用與管理操作紀錄。","檢查主管設備是否仍有惡意程式或釣魚工作階段。","依客戶合約與已確認資料範圍準備內外部溝通。"],
+    week:["主管、管理者、財務與重要雲端帳號先啟用 MFA。","異常登入警示同時通知備援窗口並建立電話通報樹。","建立帳號接管 60 分鐘處置卡。"],
+    month:["進行短而頻繁的釣魚演練與回報按鈕教育。","檢查郵件轉寄規則、第三方應用與高權限帳號。","依角色調整工作階段期限與異常下載門檻。"],
+    quarter:["當警示量、跨國登入或高風險帳號數超過人工能力，再評估身分威脅偵測與抗釣魚 MFA。","驗收可看：MFA 覆蓋率、警示至處置時間、演練回報率。"],
+    twist:"隱藏轉寄規則表示攻擊者可能持續取得郵件，也可能搜尋更多機密。復原完成條件要包含刪除規則、撤銷應用與工作階段、確認郵箱與雲端活動，而非只改密碼。",
+    sample:"本案先當作帳號接管處理。前 24 小時撤銷所有工作階段、重設密碼、保存 90 天日誌，檢查下載、分享、轉寄規則與第三方應用，並建立已知、未知資料清單。7 天內高風險帳號先啟用 MFA，警示增加備援收件者與電話通報；30 天做演練及郵件規則抽查。若人工無法處理警示量，再投資身分防護。教育與 MFA 不是二選一，前者降低點擊與加速報告，後者限制密碼被盜後的影響。",
+    anti:["只改密碼就宣告事件結束。","只責怪主管，忽略 MFA、警示與權限範圍。","還沒確認資料就對客戶做過度確定的陳述。"],
+    follow:["什麼證據能界定攻擊者活動期間？","復原完成要檢查哪些項目？","唯一資訊人員睡覺時誰收到高風險警示？"],
+    residual:["一般 MFA 仍可能被即時釣魚，需逐步採用抗釣魚方式。","90 天以前的活動仍可能無法查明。"]
+  },
+  {
+    id:9,title:"活動報名 Excel 散落多處，沒人知道何時刪除",category:"資料保存",difficulty:"進階",
+    objective:"讓學員以目的與必要性決定欄位、對象與期限，而不是猜一個統一保存年限。",
+    signals:["活動聯繫與行銷是不同目的，只有 35% 同意行銷。","講師與合作單位都不需要完整名單。","期限應依目的、法令、契約與業務必要性決定，沒有所有資料通用的數字。","一人辦活動缺少清理時間，流程要把結案清理變成固定步驟。"],
+    minimum:["能做資料—目的—角色—欄位—期限—負責人矩陣。","立即停止未同意者行銷，盤點第三方寄信工具與散落副本。","用既有表單同意欄、不同 Excel 版本、限期雲端分享與結案清單。"],
+    response:["暫停使用 600 人名單行銷，保留匯入與寄送紀錄。","盤點九台電腦、郵件、雲端、講師、合作單位與寄信平台副本。","依原始目的與同意狀態分流，對不再需要的副本刪除或停止利用並留證。","由資料窗口確認契約、法令與當事人溝通需求。"],
+    week:["報到、客服、講師、合作單位各取得最小欄位版本。","改用限期雲端連結，不再以郵件散發附件。","活動結束時執行副本清單與外部刪除確認。"],
+    month:["建立資料類別、目的、起算點、期限、例外、責任與刪除證據的保存表。","表單分開活動聯繫與行銷同意。","活動排程預留結案清理時間。"],
+    quarter:["當活動量與副本數使人工清理無法維持，再評估 CRM、活動系統或自動保存規則。","驗收可看：完整名單副本數、逾期資料、同意分流正確率。"],
+    twist:"600 人全數匯入寄信平台且已寄一次，需新增停止行銷、平台副本與處理者範圍、同意狀態修正及必要溝通；不能只刪內部 Excel。",
+    sample:"本題不能直接回答保存三年或五年，應先看目的。活動聯繫名單可依退費與證明需求設定起算點與期限，行銷名單只能保留有適當同意者，財務憑證另依其法令與業務需求處理。前 24 小時先停用全數行銷、保存寄送紀錄、盤點第三方平台與所有副本。7 天內按角色產生最小欄位版本並改用限期連結；30 天建立保存矩陣與結案清單。",
+    anti:["所有活動資料一律保存固定年數，沒有說明依據。","行銷覺得有用就永久保留。","只刪承辦人電腦，忽略郵件、講師與第三方平台。"],
+    follow:["每個期限的起算點是什麼？","財務憑證為何不等於完整活動名單？","外部單位刪除要留下什麼證據？"],
+    residual:["外部接收者可能未依要求刪除。","人工產生不同欄位版本仍可能選錯檔案。"]
+  },
+  {
+    id:10,title:"財務共用資料夾權限過大，實習生看見付款資料",category:"帳號權限",difficulty:"入門",
+    objective:"讓學員把最小權限具體畫成簡單資料區、角色與到期規則。",
+    signals:["實習生只需上傳與標記，不需讀取歷史付款。","最多四個群組迫使方案保持簡單，這是合理設計限制。","同步到私人筆電後，縮權不能處理既有副本。","月底不能搬資料，可分批、先新後舊。"],
+    minimum:["立即移除實習生過大權限、保存紀錄並處理私人筆電副本。","能提出不超過四組的資料區與讀寫權限。","有到期、輪調、每月複核及分批搬移計畫。"],
+    response:["移除實習生整個財務資料夾權限並保存存取／同步紀錄。","確認私人筆電下載範圍、是否仍同步及刪除／返還處理方式。","檢查是否分享、寄送或另存，避免只看雲端目前權限。","以事實與工作需求溝通，不先把權限錯誤歸責實習生。"],
+    week:["建立上傳區、一般會計區、付款敏感區、主管審核區四類。","實習生只能上傳與查看自己處理狀態，權限設兩個月到期。","停止整個財務群組繼承到所有子資料夾。"],
+    month:["關帳後分批搬移新資料，再處理歷史資料。","每月由財務主管複核群組成員與到期日。","輪調時重新依工作內容核准，不沿用舊權限。"],
+    quarter:["若角色與資料區持續增加到四組無法表達，再評估分類標籤或權限治理。","驗收可看：逾期人員、敏感區非必要成員、下載異常。"],
+    twist:"私人筆電已有完整副本，表示事件處置要涵蓋端點與人員溝通。不能假設從雲端移除權限就等於資料消失。",
+    sample:"前三大問題是同部門等於同權限、群組繼承過大，以及私人同步產生副本。前 24 小時先縮權、保存同步紀錄、確認私人筆電下載與是否再分享。7 天內用四區設計：實習上傳、一般會計、付款敏感、主管審核，實習權限自動兩個月到期；30 天在關帳後分批搬移並每月複核。這不需新工具，利用既有群組、子資料夾與到期日即可。",
+    anti:["同部門所以應該全部看得到。","把資料夾切成數十層，最後沒有人維護。","只移除雲端權限，不處理私人筆電副本。"],
+    follow:["實習生需要讀、寫、修改還是只上傳？","哪四個群組最能長期維護？","如何證明私人副本已處理？"],
+    residual:["有權查看的人仍可能下載，需要紀錄與抽查。","四組簡化管理，也代表少數特殊情況要走例外流程。"]
+  },
+  {
+    id:11,title:"公司用 Excel 管理所有共用帳密",category:"帳號權限",difficulty:"中階",
+    objective:"讓學員先救最重要帳號，再逐步移除共用密碼與單點復原風險。",
+    signals:["Excel 密碼寫在群組中，等同降低檔案保護效果。","金流、網域與主要雲端可個人化並啟用 MFA，應先處理。","離職員工曾下載，所有檔內密碼都應視風險評估與輪替。","避免單點風險的方法是兩位管理者與緊急復原，不是共用主密碼。"],
+    minimum:["依金流、網域、雲端、社群等營運影響排序。","立即輪替高風險密碼、撤銷工作階段、修改復原方式與停權。","7／30／90 天涵蓋清冊、個人帳號、MFA、密碼管理器與緊急存取。"],
+    response:["先處理網域、金流、主要雲端與財務帳號，輪替密碼並撤銷工作階段。","移除前員工與廠商角色，檢查復原 Email、電話與 API 金鑰。","保存帳密檔存取紀錄，盤點檔中所有服務與重要性。","七天內到期的網域立即由公司控制的帳號與付款方式接管。"],
+    week:["建立帳號、擁有者、重要性、管理者、復原方式與最後複核日清冊。","重要平台改為兩位個人管理者與 MFA。","停止在群組公告主密碼，先輪替最高風險項目。"],
+    month:["導入適合規模的密碼管理器，從 5–10 個重要帳號試辦。","社群與廣告使用角色委派，不分享主密碼。","建立離職、廠商結案與緊急存取流程。"],
+    quarter:["完成其餘系統遷移、復原演練與每季複核。","若特權帳號量與人員規模增加，再評估進階特權管理。驗收看：共用主密碼數、MFA 覆蓋率、復原測試。"],
+    twist:"網域綁前員工私人 Email 且七天到期，優先序立即升到最高，因為網域失控會連帶影響網站、郵件與帳號復原。",
+    sample:"我們先依營運影響處理網域、金流與主要雲端。前 24 小時輪替密碼、撤銷工作階段、移除前員工與廠商，並把網域復原 Email 與付款方式轉回公司。7 天內建立帳號清冊，重要平台改成兩位個人管理者加 MFA；30 天用密碼管理器試辦 5–10 個帳號，社群改角色委派。兩位管理者與緊急存取可以降低單點風險，不必靠所有人知道同一密碼。",
+    anti:["只替帳密 Excel 換一個更強密碼。","一次遷移所有帳號，導致沒有完成優先項目。","把主密碼交給更多人來避免單點風險。"],
+    follow:["哪三個帳號失控會讓公司最快停擺？","兩位管理者如何避免互相鎖死？","緊急存取多久測試一次？"],
+    residual:["少數平台可能仍只支援共用帳號，需要更嚴格保管與輪替。","密碼管理器降低散落風險，但主帳號與復原流程仍需保護。"]
+  },
+  {
+    id:12,title:"客服把含個資的客訴內容貼進生成式 AI",category:"生成式 AI",difficulty:"入門",
+    objective:"讓學員把 AI 使用規範落實成一分鐘內可完成的去識別流程，而不是全面禁止。",
+    signals:["姓名、電話、Email、訂單與付款末碼對潤稿與摘要並非必要。","個人 AI 帳號、未簽資料處理條款與公開分享連結形成第三方風險。","全面禁止可能把使用推向公司看不到的私人帳號。","公司已有純文字匯出、內部群組與提示範例，可先建立低成本流程。"],
+    minimum:["立即停止分享、保存必要紀錄、確認瀏覽者與第三方保留／刪除方式。","能列出禁止輸入資料與一分鐘去識別步驟。","提出核准用途、範例、教育與抽查指標，不只說禁止 AI。"],
+    response:["關閉公開分享連結，保存對話建立、分享與瀏覽資訊。","確認 AI 服務的帳號、資料保留、刪除與模型訓練設定。","盤點外包群組成員與 23 次瀏覽可能範圍。","依已確認資料與第三方處理情形，由事件窗口評估後續溝通。"],
+    week:["客服先移除姓名、電話、Email、地址、訂單、付款與可識別敘述。","只輸入問題類型、錯誤碼與必要技術內容。","禁止分享公開 AI 對話連結，回傳內容先人工檢查。"],
+    month:["建立核准用途、禁止資料與去識別前後範例的一頁提示。","做 15 分鐘實作演練與每週少量抽查。","建立員工遇到疑問時的快速詢問窗口。"],
+    quarter:["當 AI 使用量、資料敏感度或稽核需求超過人工抽查能力，再評估企業版 AI 或安全閘道。","驗收可看：含識別資料輸入事件、公開分享連結、抽查合格率。"],
+    twist:"公開連結在含外包人員群組且有 23 次瀏覽，範圍已從 AI 供應商擴大到不明瀏覽者。應追查群組成員、轉傳與平台紀錄，不只刪除原對話。",
+    sample:"生成式 AI 可以協助摘要，但姓名、電話、Email、訂單與付款資訊都不是完成任務的必要資料。前 24 小時先關閉分享、保存 23 次瀏覽資訊、確認外包群組與平台刪除設定。7 天內用純文字匯出後執行一分鐘去識別，只輸入問題類型與錯誤碼，禁止公開分享對話；30 天提供核准用途與前後範例並抽查。若使用量高到人工抽查無法維持，再評估企業版 AI。",
+    anti:["全面禁止 AI，卻不處理員工私下使用。","只把姓名換成代號，仍保留電話、訂單與完整敘述。","以為刪除對話就能證明所有第三方副本消失。"],
+    follow:["AI 完成摘要真正需要哪些資訊？","一分鐘去識別步驟能否被客服接受？","什麼條件下值得採購企業版 AI？"],
+    residual:["人工去識別可能遺漏自由文字中的身分線索。","第三方服務的實際保留與處理方式需依其方案與契約確認。"]
+  }
+];
+
+const els={guides:document.getElementById('guides'),keyword:document.getElementById('keyword'),category:document.getElementById('category'),difficulty:document.getElementById('difficulty'),count:document.getElementById('countText'),toast:document.getElementById('toast')};
+let toastHandle=null;
+function esc(value){return String(value).replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]))}
+function list(items){return '<ul>'+items.map(item=>`<li>${esc(item)}</li>`).join('')+'</ul>'}
+function difficultyClass(level){return level==='入門'?'easy':level==='中階'?'medium':'hard'}
+function filtered(){const k=els.keyword.value.trim().toLowerCase(),c=els.category.value,d=els.difficulty.value;return guides.filter(g=>(c==='all'||g.category===c)&&(d==='all'||g.difficulty===d)&&(!k||JSON.stringify(g).toLowerCase().includes(k)))}
+function render(){
+  const visible=new Set(filtered().map(g=>g.id));
+  document.querySelectorAll('.guide-card').forEach(card=>{card.hidden=!visible.has(Number(card.dataset.id))});
+  els.count.textContent=`目前顯示 ${visible.size} / ${guides.length} 題`;
+  const empty=document.getElementById('emptyState');if(empty)empty.hidden=visible.size!==0;
+}
+function card(g){return `<article class="guide-card" data-id="${g.id}"><details${g.id===1?' open':''}><summary><span class="number">${g.id}</span><div class="summary-title"><h2>${esc(g.title)}</h2><div class="meta"><span class="tag type">${esc(g.category)}</span><span class="tag ${difficultyClass(g.difficulty)}">${esc(g.difficulty)}</span></div></div></summary><div class="guide-body">
+  <div class="student-row"><a class="student-link" href="index.html?scenario=${g.id}" target="_blank" rel="noopener">另開學員版此題 ↗</a></div>
+  <div class="objective"><strong>教學目標：</strong>${esc(g.objective)}</div>
+  <div class="teacher-grid"><section class="box signals"><h3>教師應觀察的核心訊號</h3>${list(g.signals)}</section><section class="box minimum"><h3>最低可接受答案</h3>${list(g.minimum)}</section></div>
+  <div class="roadmap"><section class="box response"><h3>前 24 小時建議方向</h3>${list(g.response)}</section><section class="box week"><h3>7 天｜不新增採購</h3>${list(g.week)}</section><section class="box month"><h3>30 天｜流程制度化</h3>${list(g.month)}</section><section class="box quarter"><h3>90 天｜投資條件與驗收</h3>${list(g.quarter)}</section></div>
+  <section class="box twist full"><h3>事件轉折講評</h3><p>${esc(g.twist)}</p></section>
+  <section class="box sample full"><h3>五分鐘報告範例</h3><p>${esc(g.sample)}</p><div class="copy-row"><button class="copy-btn" data-copy="${g.id}">複製此題範例</button></div></section>
+  <div class="teacher-grid"><section class="box anti"><h3>常見但不夠好的答案</h3>${list(g.anti)}</section><section class="box follow"><h3>教師追問句</h3>${list(g.follow)}</section><section class="box residual full"><h3>可接受的殘餘風險</h3>${list(g.residual)}</section></div>
+  </div></details></article>`}
+function showToast(message){clearTimeout(toastHandle);els.toast.textContent=message;els.toast.classList.add('show');toastHandle=setTimeout(()=>els.toast.classList.remove('show'),2200)}
+async function copySample(id){const g=guides.find(item=>item.id===id);if(!g)return;const text=`${g.id}. ${g.title}\n\n五分鐘報告範例\n${g.sample}`;try{await navigator.clipboard.writeText(text)}catch(e){const area=document.createElement('textarea');area.value=text;document.body.appendChild(area);area.select();document.execCommand('copy');area.remove()}showToast('已複製範例解答。')}
+
+els.guides.innerHTML=guides.map(card).join('')+'<div class="empty" id="emptyState" hidden><h2>找不到符合條件的題目</h2><p>請調整關鍵字、類型或難度。</p></div>';
+const categories=[...new Set(guides.map(g=>g.category))];els.category.innerHTML='<option value="all">全部類型</option>'+categories.map(c=>`<option>${esc(c)}</option>`).join('');
+els.keyword.addEventListener('input',render);els.category.addEventListener('change',render);els.difficulty.addEventListener('change',render);
+document.getElementById('expandBtn').addEventListener('click',()=>document.querySelectorAll('.guide-card:not([hidden]) details').forEach(item=>item.open=true));
+document.getElementById('collapseBtn').addEventListener('click',()=>document.querySelectorAll('.guide-card:not([hidden]) details').forEach(item=>item.open=false));
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+els.guides.addEventListener('click',event=>{const button=event.target.closest('[data-copy]');if(button)copySample(Number(button.dataset.copy))});
+const params=new URLSearchParams(window.location.search),requested=Number(params.get('scenario'));if(guides.some(g=>g.id===requested)){const target=document.querySelector(`.guide-card[data-id="${requested}"]`);target.querySelector('details').open=true;setTimeout(()=>target.scrollIntoView({block:'start'}),0)}
+render();
+</script>
+</body>
+</html>
